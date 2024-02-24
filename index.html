@@ -1,6 +1,10 @@
 <body class="dark-mode">
   <head>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
   </head>
   <main>
     <div id="HelloWorld">
@@ -9,9 +13,10 @@
         data-text='["Hi, I&apos;m Max!", "I like to code in C and Python."]'
       ></div>
     </div>
-    <div class="mode-switch-container">
-      <button id="mode-switch">Switch to Light Mode</button>
-    </div>
+    <button id="theme-toggle" class="theme-toggle">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon" style="display: none"></i>
+    </button>
   </main>
   <script src="script.js"></script>
   <script src="assets/scripts/typer.js"></script>

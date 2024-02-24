@@ -1,26 +1,30 @@
 window.onload = function () {
-  var modeSwitch = document.getElementById("mode-switch");
   var body = document.body;
 
   // Check for saved theme in local storage
   var savedTheme = localStorage.getItem("theme");
   if (savedTheme) {
     body.className = savedTheme;
-    modeSwitch.innerText =
-      savedTheme === "dark-mode"
-        ? "Switch to Light Mode"
-        : "Switch to Dark Mode";
   }
-
-  modeSwitch.onclick = function () {
-    if (body.className === "dark-mode") {
-      body.className = "light-mode";
-      modeSwitch.innerText = "Switch to Dark Mode";
-      localStorage.setItem("theme", "light-mode");
-    } else {
-      body.className = "dark-mode";
-      modeSwitch.innerText = "Switch to Light Mode";
-      localStorage.setItem("theme", "dark-mode");
-    }
-  };
 };
+
+document.getElementById('theme-toggle').addEventListener('click', function() {
+  var body = document.body;
+
+  var sunIcon = this.querySelector('.fa-sun');
+  var moonIcon = this.querySelector('.fa-moon');
+
+  if (body.classList.contains('dark-mode')) {
+    sunIcon.style.display = 'none';
+    moonIcon.style.display = 'inline-block';
+    body.style.transition = 'all 0.3s ease';
+    body.classList.remove('dark-mode');
+    body.classList.add('light-mode');
+  } else {
+    sunIcon.style.display = 'inline-block';
+    moonIcon.style.display = 'none';
+    body.style.transition = 'all 0.3s ease';
+    body.classList.remove('light-mode');
+    body.classList.add('dark-mode');
+  }
+});

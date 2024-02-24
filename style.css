@@ -11,35 +11,35 @@
   font-family: 'Fira Code', monospace;
 }
 
-#mode-switch {
-  border-radius: 12px; /* adjust this value to your liking */
-}
-
-.mode-switch-container {
+#theme-toggle {
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
+  top: 1rem;
+  right: 1rem;
 }
 
 body.dark-mode {
   background-color: #0e0e0e;
   color: #fff;
+  transition: none;
 }
 
 body.light-mode {
   background-color: #FFFFFF;
   color: #000;
+  transition: none;
 }
 
-body.dark-mode #mode-switch {
+body.dark-mode #theme-toggle {
   background-color: #272727;
-  color: #fff;
-  border: none;
+  color: #8a8a8a;
 }
 
-body.light-mode #mode-switch {
+body.light-mode #theme-toggle {
   background-color: #ccc;
-  color: #000;
-  border: none;
+  color: #646464;
 }
