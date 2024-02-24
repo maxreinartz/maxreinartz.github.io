@@ -40,7 +40,7 @@ function typer(element) {
     const spedUp = Math.random() * (100 - 70) + 70;
     const normalSpeed = Math.random() * (150 - 100) + 100;
     const time = isEnd ? 2000 : isDeleting ? spedUp : normalSpeed;
-    const pauseAfterDelete = 500; // Add a pause after deleting
+    const pauseAfterDelete = 500;
     setTimeout(loop, !isDeleting && j === 0 ? pauseAfterDelete : time);
   }
 
