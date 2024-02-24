@@ -11,6 +11,19 @@
   font-family: 'Fira Code', monospace;
 }
 
+#footer {
+  position: absolute;
+  bottom: 0px;
+  left: 15px;
+  font-size: 0.75rem;
+  font-family: 'Fira Code', monospace;
+}
+
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 #theme-toggle {
   border-radius: 12px;
   padding: 0.5rem 1rem;
