@@ -1,8 +1,18 @@
 <body class="dark-mode">
-  <div id="content" style="text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-      <h1 id="greeting">Hello, World!</h1>
-  </div>
-  <div style="position: absolute; top: 0; right: 0; padding: 10px;">
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <main>
+    <div id="HelloWorld">
+      <div
+        class="typer-text"
+        data-text='["Hi, I&apos;m Max!", "I like to code in C and Python."]'
+      ></div>
+    </div>
+    <div class="mode-switch-container">
       <button id="mode-switch">Switch to Light Mode</button>
-  </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+  <script src="assets/scripts/typer.js"></script>
 </body>
