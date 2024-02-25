@@ -6,6 +6,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* root */
+:root {
+  --dot1-color: #800080; /* Purple */
+  --dot2-color: #4b0082; /* Indigo */
+  --dot3-color: #0000ff; /* Blue */
+  --dot4-color: #00bfff; /* Deep Sky Blue */
+  --dot5-color: #00ffff; /* Cyan */
+}
+
 /* BG */
 #background {
   position: absolute;
@@ -20,27 +29,27 @@ html {
 .dot {
   position: absolute;
   border-radius: 50%;
-  filter: blur(500px);
+  filter: blur(2500px);
 }
 
 #dot1 {
-  background: #6200ee;
+  background: var(--dot1-color);
 }
 
 #dot2 {
-  background: #3f4fe7;
+  background: var(--dot2-color);
 }
 
 #dot3 {
-  background: #0040ff;
+  background: var(--dot3-color);
 }
 
 #dot4 {
-  background: #007bff;
+  background: var(--dot4-color);
 }
 
 #dot5 {
-  background: #00ffff;
+  background: var(--dot5-color);
 }
 
 /* Content */
@@ -84,12 +93,19 @@ body.dark-mode {
   background-color: #0e0e0e;
   color: #fff;
   transition: none;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
 body.light-mode {
   background-color: #ffffff;
   color: #000;
   transition: none;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  --dot1-color: #ff0000;
+  --dot2-color: #ff4000;
+  --dot3-color: #ff8000;
+  --dot4-color: #ffc000;
+  --dot5-color: #ffff00;
 }
 
 body.dark-mode #theme-toggle {
