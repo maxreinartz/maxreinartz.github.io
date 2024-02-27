@@ -1,3 +1,15 @@
+/*
+  Creeper76's Software License
+  
+  Copyright (c) 2024 Creeper76
+
+  This software is licensed under the terms of Creeper76's Software License.
+  See the LICENSE file for more details.
+
+  This software is provided "as is", without warranty of any kind, express or implied.
+  The author(s) of the software are not liable for any damages or losses arising from the use of the software.
+*/
+
 /* Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap");
 
@@ -89,6 +101,38 @@ html {
   right: 1rem;
 }
 
+#home {
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top: 1rem;
+  right: 4.8rem;
+}
+
+#home a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#download {
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top: 1rem;
+  right: 8.8rem;
+}
+
+#download a {
+  color: inherit;
+  text-decoration: none;
+}
+
 body.dark-mode {
   background-color: #0e0e0e;
   color: #fff;
@@ -100,7 +144,7 @@ body.light-mode {
   background-color: #ffffff;
   color: #000;
   transition: none;
-  text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  text-shadow: 2px 2px 2px rgba(0,0,0,0);
   --dot1-color: #ff0000;
   --dot2-color: #ff4000;
   --dot3-color: #ff8000;
@@ -114,6 +158,26 @@ body.dark-mode #theme-toggle {
 }
 
 body.light-mode #theme-toggle {
+  background-color: #ccc;
+  color: #646464;
+}
+
+body.dark-mode #home {
+  background-color: #272727;
+  color: #8a8a8a;
+}
+
+body.light-mode #home {
+  background-color: #ccc;
+  color: #646464;
+}
+
+body.dark-mode #download {
+  background-color: #272727;
+  color: #8a8a8a;
+}
+
+body.light-mode #download {
   background-color: #ccc;
   color: #646464;
 }

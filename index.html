@@ -1,7 +1,19 @@
 <!DOCTYPE html>
+<!--
+  Creeper76's Software License
+  
+  Copyright (c) 2024 Creeper76
+
+  This software is licensed under the terms of Creeper76's Software License.
+  See the LICENSE file for more details.
+
+  This software is provided "as is", without warranty of any kind, express or implied.
+  The author(s) of the software are not liable for any damages or losses arising from the use of the software.
+-->
 <html>
-  <title>Hi, I'm Max!</title>
   <head>
+    <title>Hi, I'm Max!</title>
+    <!-- Link to the CSS stylesheets -->
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link
       rel="stylesheet"
@@ -10,6 +22,7 @@
   </head>
   <body class="dark-mode">
     <main>
+      <!-- Background dots -->
       <div id="background">
         <div class="dot" id="dot1"></div>
         <div class="dot" id="dot2"></div>
@@ -17,23 +30,27 @@
         <div class="dot" id="dot4"></div>
         <div class="dot" id="dot5"></div>
       </div>
+      <!-- Typing text -->
       <div id="HelloWorld">
         <div
           class="typer-text"
           data-text='["Hi, I&apos;m Max!", "I enjoy coding in C and Python."]'
         ></div>
       </div>
+      <!-- Footer with license -->
       <div id="footer">
         <p>
           Copyright (c) 2024 Creeper76 -
-          <a href="/LICENSE" target="_blank">LICENSE</a>
+          <a href="/LICENSE.html">LICENSE</a>
         </p>
       </div>
+      <!-- Theme toggle button -->
       <button id="theme-toggle" class="theme-toggle">
         <i class="fas fa-sun"></i>
         <i class="fas fa-moon" style="display: none"></i>
       </button>
     </main>
+    <!-- Link to the JavaScript files -->
     <script src="script.js"></script>
     <script src="assets/scripts/typer.js"></script>
   </body>

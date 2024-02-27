@@ -1,21 +1,25 @@
-MIT License
+Creeper76's Software License
 
 Copyright (c) 2024 Creeper76
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the "Software"), to use, copy, modify, and distribute the Software
+for any non-commercial purpose, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+You may:
+- Use the Software for any non-commercial purpose, where non-commercial purpose means any activity
+ or transaction done without an intention to make a profit.
+- Copy the Software for your own use or backup.
+- Modify the Software to suit your needs or preferences.
+- Distribute the Software to others, as long as you comply with the terms of this license.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+You may not:
+- Use the Software for any commercial purpose, where commercial purpose means any activity or
+ transaction done with an intention to make a profit.
+- Use the Software for any illegal or harmful activities.
+- Distribute the Software with a hidden or obfuscated source code.
+- Distribute the Software with a modified or changed license.
+- Distribute the Software with a charge for the source code.
+
+This software is provided "as is", without warranty of any kind, express or implied. The author(s)
+of the software are not liable for any damages or losses arising from the use of the software.
