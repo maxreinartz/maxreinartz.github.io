@@ -140,6 +140,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
 
     // Start the animation
-    requestAnimationFrame(move);
+    move();
   }
 });
