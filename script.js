@@ -20,6 +20,7 @@ function updateTheme(theme) {
   body.className = theme;
   sunIcon.style.display = theme === "dark-mode" ? "inline-block" : "none";
   moonIcon.style.display = theme === "dark-mode" ? "none" : "inline-block";
+  body.style.transition = "all 0.3s ease";
 }
 
 // On load, set the theme from local storage
