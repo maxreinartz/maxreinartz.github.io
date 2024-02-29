@@ -10,51 +10,27 @@
   The author(s) of the software are not liable for any damages or losses arising from the use of the software.
 */
 
-window.onload = function () {
-  var body = document.body;
+const body = document.body;
+const themeToggle = document.getElementById("theme-toggle");
+const sunIcon = themeToggle.querySelector(".fa-sun");
+const moonIcon = themeToggle.querySelector(".fa-moon");
 
-  var savedTheme = localStorage.getItem("theme");
-  if (savedTheme) {
-    body.className = savedTheme;
-    if (savedTheme === "dark-mode") {
-      document
-        .getElementById("theme-toggle")
-        .querySelector(".fa-sun").style.display = "inline-block";
-      document
-        .getElementById("theme-toggle")
-        .querySelector(".fa-moon").style.display = "none";
-    } else {
-      document
-        .getElementById("theme-toggle")
-        .querySelector(".fa-sun").style.display = "none";
-      document
-        .getElementById("theme-toggle")
-        .querySelector(".fa-moon").style.display = "inline-block";
-    }
-  }
-};
+// Function to update theme
+function updateTheme(theme) {
+  body.className = theme;
+  sunIcon.style.display = theme === "dark-mode" ? "inline-block" : "none";
+  moonIcon.style.display = theme === "dark-mode" ? "none" : "inline-block";
+}
 
-document.getElementById("theme-toggle").addEventListener("click", function () {
-  var body = document.body;
+// On load, set the theme from local storage
+const savedTheme = localStorage.getItem("theme") || "light-mode";
+updateTheme(savedTheme);
 
-  var sunIcon = this.querySelector(".fa-sun");
-  var moonIcon = this.querySelector(".fa-moon");
-
-  if (body.classList.contains("dark-mode")) {
-    sunIcon.style.display = "none";
-    moonIcon.style.display = "inline-block";
-    body.style.transition = "all 0.3s ease";
-    body.classList.remove("dark-mode");
-    body.classList.add("light-mode");
-    localStorage.setItem("theme", "light-mode");
-  } else {
-    sunIcon.style.display = "inline-block";
-    moonIcon.style.display = "none";
-    body.style.transition = "all 0.3s ease";
-    body.classList.remove("light-mode");
-    body.classList.add("dark-mode");
-    localStorage.setItem("theme", "dark-mode");
-  }
+// Add event listener for theme toggle
+themeToggle.addEventListener("click", function () {
+  const newTheme = body.classList.contains("dark-mode") ? "light-mode" : "dark-mode";
+  updateTheme(newTheme);
+  localStorage.setItem("theme", newTheme);
 });
 
 window.addEventListener("DOMContentLoaded", (event) => {
@@ -68,10 +44,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
   ctx.strokeStyle = "rgb(255, 100, 100)"; */
 
   // Get all dots
-  const dots = document.getElementsByClassName("dot");
+  const dots = Array.from(document.getElementsByClassName("dot"));
 
   // Initialize each dot
-  Array.from(dots).forEach((dot) => {
+  dots.forEach((dot) => {
     // Set random size and position
     const size = Math.random() * 150 + 400; // 400-550px
     dot.style.width = `${size}px`;
