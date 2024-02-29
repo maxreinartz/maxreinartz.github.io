@@ -18,6 +18,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Misc */
+.hide-content {
+  display: none;
+}
+
 /* root */
 :root {
   --dot1-color: #800080; /* Purple */
@@ -131,6 +136,35 @@ html {
 #download a {
   color: inherit;
   text-decoration: none;
+}
+
+#warning-bubble {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 32px;
+  padding: 1rem 1rem 4rem 1rem;
+  font-size: 3rem;
+  background-color: #858585;
+  color: #fff;
+  display: none;
+  text-align: center;
+}
+
+#continue-button {
+  position: absolute;
+  bottom: 1rem; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  border: none;
+  background-color: #dbdbdb;
+  color: #000;
+  display: none;
 }
 
 body.dark-mode {

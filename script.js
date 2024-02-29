@@ -10,10 +10,40 @@
   The author(s) of the software are not liable for any damages or losses arising from the use of the software.
 */
 
+import {getDeviceType, getBrowser} from './assets/scripts/checkDevice.js';
+
 const body = document.body;
 const themeToggle = document.getElementById("theme-toggle");
 const sunIcon = themeToggle.querySelector(".fa-sun");
 const moonIcon = themeToggle.querySelector(".fa-moon");
+
+window.onload = function () {
+  console.log("Device type:", getDeviceType());
+  console.log("Browser:", getBrowser());
+
+  const warningBubble = document.getElementById("warning-bubble");
+  const continueButton = document.getElementById("continue-button");
+  const mainContent = document.querySelector("main");
+
+  if (getDeviceType() != "Desktop") {
+    const lastVisit = localStorage.getItem("lastVisit");
+
+    if (lastVisit && new Date().getTime() - lastVisit < 5 * 60 * 1000) {
+      mainContent.classList.remove("hide-content");
+    } else {
+      warningBubble.style.display = "block";
+      continueButton.style.display = "block";
+      mainContent.classList.add("hide-content");
+    }
+  }
+
+  continueButton.onclick = function () {
+    localStorage.setItem("lastVisit", new Date().getTime());
+    mainContent.classList.remove("hide-content");
+    warningBubble.style.display = 'none';
+    continueButton.style.display = 'none';
+  };
+};
 
 // Function to update theme
 function updateTheme(theme) {
@@ -29,7 +59,9 @@ updateTheme(savedTheme);
 
 // Add event listener for theme toggle
 themeToggle.addEventListener("click", function () {
-  const newTheme = body.classList.contains("dark-mode") ? "light-mode" : "dark-mode";
+  const newTheme = body.classList.contains("dark-mode")
+    ? "light-mode"
+    : "dark-mode";
   updateTheme(newTheme);
   localStorage.setItem("theme", newTheme);
 });

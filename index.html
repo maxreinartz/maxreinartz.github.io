@@ -10,6 +10,8 @@
   This software is provided "as is", without warranty of any kind, express or implied.
   The author(s) of the software are not liable for any damages or losses arising from the use of the software.
 -->
+
+<!-- If anyone reads this, just note I'm not a web developer! -->
 <html>
   <head>
     <title>Hi, I'm Max!</title>
@@ -20,10 +22,18 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <head>
-      <link rel="icon" href="assets/icon.png" type="image/png">
+      <link rel="icon" href="assets/icon.png" type="image/png" />
     </head>
   </head>
   <body class="dark-mode">
+    <!-- Mobile warning -->
+    <div id="warning-bubble" style="display: none">
+      <p>
+        Whoops, the website isn't made for mobile. If you would like to
+        continue, press the button below.
+      </p>
+      <button id="continue-button">Continue</button>
+    </div>
     <main>
       <!-- Background dots -->
       <div id="background">
@@ -54,7 +64,7 @@
       </button>
     </main>
     <!-- Link to the JavaScript files -->
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
     <script src="assets/scripts/typer.js"></script>
   </body>
 </html>
