@@ -13,6 +13,14 @@
     </head>
   </head>
   <body class="dark-mode">
+    <!-- Mobile warning -->
+    <div id="warning-bubble" style="display: none">
+      <p>
+        Whoops, the website isn't made for mobile. If you would like to
+        continue, press the button below.
+      </p>
+      <button id="continue-button">Continue</button>
+    </div>
     <main>
       <!-- License text -->
       <div id="license">
@@ -62,6 +70,6 @@
       </a>
     </main>
     <!-- Link to the JavaScript files -->
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
