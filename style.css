@@ -46,7 +46,7 @@ html {
 .dot {
   position: absolute;
   border-radius: 50%;
-  filter: blur(2500px);
+  filter: blur(10vh) blur(10vh) blur(10vh) saturate(250%);
 }
 
 #dot1 {
