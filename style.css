@@ -10,6 +10,8 @@
   The author(s) of the software are not liable for any damages or losses arising from the use of the software.
 */
 
+/* For some of the themes, I took inspiration from different places in Windows UI as it looks clean. (I am not associated with Microsoft or Windows in any way) */
+
 /* Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap");
 
@@ -83,9 +85,9 @@ html {
 
 #footer {
   position: absolute;
-  bottom: 1%;
+  bottom: 0%;
   left: 50%;
-  font-size: 60%;
+  font-size: 55%;
   transform: translate(-50%, 0%);
   font-family: "Fira Code", monospace;
 }
@@ -187,31 +189,37 @@ body.light-mode {
 }
 
 body.dark-mode #theme-toggle {
-  background-color: #272727;
+  background-color: rgba(39, 39, 39, 0.5);
   color: #8a8a8a;
+  backdrop-filter: blur(15px) brightness(0.7);
 }
 
 body.light-mode #theme-toggle {
-  background-color: #ccc;
+  background-color: rgba(204, 204, 204, 0.5);
   color: #646464;
+  backdrop-filter: blur(15px) brightness(0.7);
 }
 
 body.dark-mode #home {
-  background-color: #272727;
+  background-color: rgba(39, 39, 39, 0.5);
   color: #8a8a8a;
+  backdrop-filter: blur(15px) brightness(0.7);
 }
 
 body.light-mode #home {
-  background-color: #ccc;
+  background-color: rgba(204, 204, 204, 0.5);
   color: #646464;
+  backdrop-filter: blur(15px) brightness(0.7);
 }
 
 body.dark-mode #download {
-  background-color: #272727;
+  background-color: rgba(39, 39, 39, 0.5);
   color: #8a8a8a;
+  backdrop-filter: blur(15px) brightness(0.7);
 }
 
 body.light-mode #download {
-  background-color: #ccc;
+  background-color: rgba(204, 204, 204, 0.5);
   color: #646464;
+  backdrop-filter: blur(15px) brightness(0.7);
 }
