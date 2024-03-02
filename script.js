@@ -1,25 +1,28 @@
-/*
-  Creeper76's Software License
-  
-  Copyright (c) 2024 Creeper76
+// Importing required modules
+import { getDeviceType, getBrowser } from "./assets/scripts/checkDevice.js";
 
-  This software is licensed under the terms of Creeper76's Software License.
-  See the LICENSE file for more details.
-
-  This software is provided "as is", without warranty of any kind, express or implied.
-  The author(s) of the software are not liable for any damages or losses arising from the use of the software.
-*/
-
-import {getDeviceType, getBrowser} from './assets/scripts/checkDevice.js';
-
+// DOM elements
 const body = document.body;
 const themeToggle = document.getElementById("theme-toggle");
 const sunIcon = themeToggle.querySelector(".fa-sun");
 const moonIcon = themeToggle.querySelector(".fa-moon");
+const scrollButton = document.getElementById("back-to-top");
 
+// Function to update theme
+function updateTheme(theme) {
+  body.className = theme;
+  sunIcon.style.display = theme === "dark-mode" ? "inline-block" : "none";
+  moonIcon.style.display = theme === "dark-mode" ? "none" : "inline-block";
+  body.style.transition = "all 0.3s ease";
+}
+
+// On load, set the theme from local storage
 window.onload = function () {
   console.log("Device type:", getDeviceType());
   console.log("Browser:", getBrowser());
+
+  const savedTheme = localStorage.getItem("theme") || "light-mode";
+  updateTheme(savedTheme);
 
   const warningBubble = document.getElementById("warning-bubble");
   const continueButton = document.getElementById("continue-button");
@@ -40,22 +43,10 @@ window.onload = function () {
   continueButton.onclick = function () {
     localStorage.setItem("lastVisit", new Date().getTime());
     mainContent.classList.remove("hide-content");
-    warningBubble.style.display = 'none';
-    continueButton.style.display = 'none';
+    warningBubble.style.display = "none";
+    continueButton.style.display = "none";
   };
 };
-
-// Function to update theme
-function updateTheme(theme) {
-  body.className = theme;
-  sunIcon.style.display = theme === "dark-mode" ? "inline-block" : "none";
-  moonIcon.style.display = theme === "dark-mode" ? "none" : "inline-block";
-  body.style.transition = "all 0.3s ease";
-}
-
-// On load, set the theme from local storage
-const savedTheme = localStorage.getItem("theme") || "light-mode";
-updateTheme(savedTheme);
 
 // Add event listener for theme toggle
 themeToggle.addEventListener("click", function () {
@@ -66,29 +57,33 @@ themeToggle.addEventListener("click", function () {
   localStorage.setItem("theme", newTheme);
 });
 
+// Check for scroll event and show/hide the back-to-top button
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 300) {
+    scrollButton.style.visibility = "visible";
+    scrollButton.style.opacity = "1";
+  } else {
+    scrollButton.style.opacity = "0";
+    scrollButton.style.visibility = "hidden";
+  }
+});
+
+// Add event listener for back-to-top button
+document.getElementById("back-to-top").addEventListener("click", function () {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Animation for dots
 window.addEventListener("DOMContentLoaded", (event) => {
-  // Create a canvas
-  /* const canvas = document.createElement("canvas");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  document.body.appendChild(canvas);
-  const ctx = canvas.getContext("2d");
-
-  ctx.strokeStyle = "rgb(255, 100, 100)"; */
-
-  // Get all dots
   const dots = Array.from(document.getElementsByClassName("dot"));
 
-  // Initialize each dot
   dots.forEach((dot) => {
-    // Set random size and position
     const size = Math.random() * 150 + 400; // 400-550px
     dot.style.width = `${size}px`;
     dot.style.height = `${size}px`;
     dot.style.top = `${Math.random() * (window.innerHeight - size)}px`;
     dot.style.left = `${Math.random() * (window.innerWidth - size)}px`;
 
-    // Start animation
     animateDot(dot);
   });
 
