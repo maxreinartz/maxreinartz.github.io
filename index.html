@@ -36,20 +36,40 @@
       <button id="continue-button">Continue</button>
     </div>
     <main>
-      <!-- Background dots -->
-      <div id="background">
-        <div class="dot" id="dot1"></div>
-        <div class="dot" id="dot2"></div>
-        <div class="dot" id="dot3"></div>
-        <div class="dot" id="dot4"></div>
-        <div class="dot" id="dot5"></div>
+      <!-- Title -->
+      <div id="title">
+        <!-- Background dots -->
+        <div id="background">
+          <div class="dot" id="dot1"></div>
+          <div class="dot" id="dot2"></div>
+          <div class="dot" id="dot3"></div>
+          <div class="dot" id="dot4"></div>
+          <div class="dot" id="dot5"></div>
+        </div>
+        <!-- Typing text -->
+        <div id="HelloWorld">
+          <div
+            class="typer-text"
+            data-text='["Hi, I&apos;m Max!", "I enjoy coding in C and Python."]'
+          ></div>
+        </div>
+        <!-- Theme toggle button -->
+        <button id="theme-toggle" class="theme-toggle">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon" style="display: none"></i>
+        </button>
       </div>
-      <!-- Typing text -->
-      <div id="HelloWorld">
-        <div
-          class="typer-text"
-          data-text='["Hi, I&apos;m Max!", "I enjoy coding in C and Python."]'
-        ></div>
+      <!-- About me -->
+      <div id="about">
+        <h1 id="about-title">About Me</h1>
+        <p id="about-desc">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Reprehenderit, corrupti. Praesentium illo facilis minus obcaecati
+          omnis dolore fugiat ratione aut. Vel fugit perspiciatis provident vero
+          saepe unde ex, molestias veniam? Quidem ipsam placeat, voluptates
+          tenetur laborum similique reprehenderit sequi vel! Excepturi molestiae
+          quidem nihil! Odio sequi corrupti quaerat est beatae?
+        </p>
       </div>
       <!-- Footer with license -->
       <div id="footer">
@@ -58,11 +78,6 @@
           <a href="/fancy_license.html">LICENSE</a>
         </p>
       </div>
-      <!-- Theme toggle button -->
-      <button id="theme-toggle" class="theme-toggle">
-        <i class="fas fa-sun"></i>
-        <i class="fas fa-moon" style="display: none"></i>
-      </button>
     </main>
     <!-- Link to the JavaScript files -->
     <script type="module" src="script.js"></script>

@@ -25,6 +25,12 @@ html {
   display: none;
 }
 
+* {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
 /* root */
 :root {
   --dot1-color: #800080; /* Purple */
@@ -72,6 +78,10 @@ html {
 }
 
 /* Content */
+#title {
+  height: 100vh;
+  min-height: 300px;
+}
 
 #HelloWorld {
   text-align: center;
@@ -81,20 +91,6 @@ html {
   transform: translate(-50%, -50%);
   font-size: 2.5rem;
   font-family: "Fira Code", monospace;
-}
-
-#footer {
-  position: absolute;
-  bottom: 0%;
-  left: 50%;
-  font-size: 55%;
-  transform: translate(-50%, 0%);
-  font-family: "Fira Code", monospace;
-}
-
-#footer a {
-  color: inherit;
-  text-decoration: underline;
 }
 
 #theme-toggle {
@@ -170,15 +166,19 @@ html {
 }
 
 body.dark-mode {
-  background-color: #0e0e0e;
-  color: #fff;
+  --background-color: #0e0e0e;
+  --text-color: #fff;
+  background-color: var(--background-color);
+  color: var(--text-color);
   transition: none;
   text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 }
 
 body.light-mode {
-  background-color: #ffffff;
-  color: #000;
+  --background-color: #ffffff;
+  --text-color: #000;
+  background-color: var(--background-color);
+  color: var(--text-color);
   transition: none;
   text-shadow: 2px 2px 2px rgba(0,0,0,0);
   --dot1-color: #ff0000;
@@ -186,6 +186,31 @@ body.light-mode {
   --dot3-color: #ff8000;
   --dot4-color: #ffc000;
   --dot5-color: #ffff00;
+}
+
+#about {
+  position: relative;
+  z-index: 1;
+  font-size: 2.5rem;
+  font-family: "Fira Code", monospace;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--background-color); /* Use the background color variable */
+  color: var(--text-color); /* Use the text color variable */
+}
+
+#about-title {
+  text-align: center;
+  padding-top: 10rem;
+  font-size: 3rem;
+}
+
+#about-desc {
+  text-align: center;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 2rem;
 }
 
 body.dark-mode #theme-toggle {
@@ -222,4 +247,19 @@ body.light-mode #download {
   background-color: rgba(204, 204, 204, 0.5);
   color: #646464;
   backdrop-filter: blur(15px) brightness(0.7);
+}
+
+/* Footer */
+#footer {
+  font-family: "Fira Code", monospace;
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: 75%;
+  background-color: var(--background-color); /* Use the background color variable */
+  color: var(--text-color); /* Use the text color variable */
+}
+
+#footer a {
+  color: inherit;
+  text-decoration: underline;
 }
