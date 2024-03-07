@@ -79,6 +79,9 @@ html {
 
 /* Content */
 #title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   min-height: 300px;
 }
@@ -89,7 +92,7 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2.5rem;
+  font-size: 2.5vw;
   font-family: "Fira Code", monospace;
 }
 
@@ -153,7 +156,7 @@ html {
 
 #continue-button {
   position: absolute;
-  bottom: 1rem; /* Adjust as needed */
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 12px;
@@ -190,6 +193,10 @@ body.light-mode {
 }
 
 #about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
   font-family: "Fira Code", monospace;
   padding-bottom: 5rem;
@@ -201,7 +208,7 @@ body.light-mode {
 #about-title {
   text-align: center;
   padding-top: 7rem;
-  font-size: 2.5rem;
+  font-size: 2.5vw;
 }
 
 #profile-bg {
@@ -209,54 +216,48 @@ body.light-mode {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* border-radius: 25px; */
-  width: 50%;
-  height: 250px;
-  /* background-color: #7c7c7c; */
+  width: 50vw;
+  height: 25vw;
   z-index: 99;
 }
 
-/* I took some inspiration from https://williamharrison.dev/. Make sure to check out his website! */
-
 #profile-pic {
   position: absolute;
-  top: 80%;
+  top: 65%;
   left: 20%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 12vw;
+  height: 12vw;
   object-fit: cover;
   object-position: center;
 }
 
 #about-name {
   text-align: left;
-  padding-top: 18%;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: 1.5rem;
-  margin-left: 32%;
+  padding-top: 13vw;
+  padding-left: 17vw;
+  font-size: 1.5vw;
 }
 
 #about-profession {
   text-align: left;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: 1rem;
-  margin-left: 32%;
+  padding-left: 17vw;
+  font-size: 1.2vw;
 }
 
 #about-desc {
   text-align: left;
   padding-top: 0.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: 1.15rem;
-  margin-left: 32%;
+  padding-left: 17vw;
+  font-size: 1vw;
 }
 
 #projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
   font-family: "Fira Code", monospace;
   width: 100%;
@@ -269,7 +270,7 @@ body.light-mode {
 #projects-title {
   text-align: center;
   padding-top: 7rem;
-  font-size: 2.5rem;
+  font-size: 2.5vw;
 }
 
 #project {
@@ -277,7 +278,7 @@ body.light-mode {
   padding-top: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  font-size: 1.75rem;
+  font-size: 1.75vw;
 }
 
 #projects-desc {
@@ -285,7 +286,7 @@ body.light-mode {
   padding-top: 0.25rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  font-size: 1.25rem;
+  font-size: 1.25vw;
 }
 
 #projects-desc a {
@@ -359,10 +360,13 @@ body.light-mode #back-to-top {
 
 /* Footer */
 #footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "Fira Code", monospace;
   text-align: center;
   padding-bottom: 1rem;
-  font-size: 75%;
+  font-size: 0.75vw;
   background-color: var(--background-color);
   color: var(--text-color);
 }
