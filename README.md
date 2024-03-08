@@ -4,7 +4,7 @@ This is my website and you can check it out at [maxreinartz.me](http://maxreinar
 
 ## TODO
 
-1. Fix mobile
+1. Fix the background not appearing on Safari
 2. Add something useful
 
 ## LICENSE
