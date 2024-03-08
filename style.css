@@ -154,6 +154,7 @@ html {
   text-align: center;
   line-height: 50px;
   animation: slideDownUp 5s ease-in-out;
+  font-size: clamp(0.5rem, 1.5vw, 2rem);
 }
 
 /* * About */
