@@ -107,7 +107,7 @@ html {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 3.2vw;
-  padding: 1vw 1vw 4vw 1vw;
+  padding: 1vw 1vw 6vw 1vw;
   font-size: 3vw;
   background-color: #858585;
   color: #fff;
@@ -117,7 +117,6 @@ html {
 
 #continue-button {
   position: absolute;
-  bottom: 1vw;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 1.2vw;
@@ -154,9 +153,9 @@ html {
 #profile-bg {
   position: absolute;
   top: 60%;
-  left: 50%;
+  left: 45%;
   transform: translate(-50%, -50%);
-  width: 50vw;
+  width: 75vw;
   height: 25vw;
   z-index: 99;
 }
@@ -164,7 +163,7 @@ html {
 #profile-pic {
   position: absolute;
   top: 63%;
-  left: 20%;
+  left: 25%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   width: clamp(50px, 12vw, 200px);
@@ -176,20 +175,20 @@ html {
 #about-name {
   text-align: left;
   padding-top: 13vw;
-  padding-left: 17vw;
+  padding-left: 26vw;
   font-size: clamp(1rem, 1.5vw, 2rem);
 }
 
 #about-profession {
   text-align: left;
-  padding-left: 17vw;
+  padding-left: 26vw;
   font-size: clamp(0.8rem, 1.2vw, 1.6rem);
 }
 
 #about-desc {
   text-align: left;
   padding-top: 0.5vh;
-  padding-left: 17vw;
+  padding-left: 26vw;
   font-size: clamp(0.8rem, 1vw, 1.4rem);
 }
 
@@ -204,7 +203,7 @@ html {
   font-family: "Fira Code", monospace;
   width: 100%;
   padding-top: 5vh;
-  padding-bottom: 12vh;
+  padding-bottom: 14vh;
   background-color: var(--background-color);
   color: var(--text-color);
 }

@@ -8,6 +8,41 @@ const sunIcon = themeToggle.querySelector(".fa-sun");
 const moonIcon = themeToggle.querySelector(".fa-moon");
 const scrollButton = document.getElementById("back-to-top");
 
+// * Testing mouse trail. Temporarily disabled because of performance issues.
+/*var lastMouseX;
+var lastMouseY;
+
+document.onmousemove = function(e) {
+  var x = e.pageX;
+  var y = e.pageY;
+
+  var dx = x - lastMouseX;
+  var dy = y - lastMouseY;
+  var distance = Math.sqrt(dx * dx + dy * dy);
+
+  var stepX = dx / distance;
+  var stepY = dy / distance;
+
+  for (var i = 0; i < distance; i++) {
+    let trail = document.createElement('div');
+    trail.style.position = 'absolute';
+    trail.style.height = '10px';
+    trail.style.width = '10px';
+    trail.style.backgroundColor = 'white';
+    trail.style.left = (lastMouseX + stepX * i) + 'px';
+    trail.style.top = (lastMouseY + stepY * i) + 'px';
+    trail.style.filter = 'blur(10px)';
+    document.body.appendChild(trail);
+
+    setTimeout(function() {
+      document.body.removeChild(trail);
+    }, 50);
+  }
+
+  lastMouseX = x;
+  lastMouseY = y;
+};*/
+
 // Function to update theme
 function updateTheme(theme) {
   body.className = theme;
