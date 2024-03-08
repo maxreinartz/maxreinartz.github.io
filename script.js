@@ -74,6 +74,13 @@ window.onload = function () {
       mainContent.classList.add("hide-content");
     }
   }
+  
+  if (getBrowser() === "Safari") {
+    var message = document.createElement('div');
+    message.id = 'safari-message';
+    message.textContent = 'Warning: This website may not work properly on Safari. Please use a different browser for the best experience.';
+    document.body.appendChild(message);
+  }
 
   continueButton.onclick = function () {
     localStorage.setItem("lastVisit", new Date().getTime());
