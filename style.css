@@ -26,9 +26,9 @@ html {
 }
 
 * {
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* root */
@@ -83,7 +83,7 @@ html {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  min-height: 300px;
+  min-height: 30vh;
 }
 
 #HelloWorld {
@@ -92,31 +92,31 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2.5vw;
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
   font-family: "Fira Code", monospace;
 }
 
 #theme-toggle {
   z-index: 99;
-  border-radius: 12px;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  border-radius: 1.2vw;
+  padding: 0.5vw 1vw;
+  font-size: clamp(1rem, 1.5vw, 2rem);
   cursor: pointer;
   border: none;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1vw;
+  right: 1vw;
 }
 
 #home {
-  border-radius: 12px;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  border-radius: 1.2vw;
+  padding: 0.5vw 1vw;
+  font-size: clamp(1rem, 1.5vw, 2rem);
   cursor: pointer;
   border: none;
   position: absolute;
-  top: 1rem;
-  right: 4.8rem;
+  top: 1vw;
+  right: 4.8vw;
 }
 
 #home a {
@@ -125,14 +125,14 @@ html {
 }
 
 #download {
-  border-radius: 12px;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  border-radius: 1.2vw;
+  padding: 0.5vw 1vw;
+  font-size: clamp(1rem, 1.5vw, 2rem);
   cursor: pointer;
   border: none;
   position: absolute;
-  top: 1rem;
-  right: 8.8rem;
+  top: 1vw;
+  right: 8.8vw;
 }
 
 #download a {
@@ -145,9 +145,9 @@ html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 32px;
-  padding: 1rem 1rem 4rem 1rem;
-  font-size: 3rem;
+  border-radius: 3.2vw;
+  padding: 1vw 1vw 4vw 1vw;
+  font-size: 3vw;
   background-color: #858585;
   color: #fff;
   display: none;
@@ -156,12 +156,12 @@ html {
 
 #continue-button {
   position: absolute;
-  bottom: 1rem;
+  bottom: 1vw;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 12px;
-  padding: 0.5rem 1rem;
-  font-size: 2.5rem;
+  border-radius: 1.2vw;
+  padding: 0.5vw 1vw;
+  font-size: 2.5vw;
   cursor: pointer;
   border: none;
   background-color: #dbdbdb;
@@ -199,7 +199,7 @@ body.light-mode {
   align-items: center;
   position: relative;
   font-family: "Fira Code", monospace;
-  padding-bottom: 5rem;
+  padding-bottom: 12vh;
   width: 100%;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -207,8 +207,8 @@ body.light-mode {
 
 #about-title {
   text-align: center;
-  padding-top: 7rem;
-  font-size: 2.5vw;
+  padding-top: 16vh;
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
 }
 
 #profile-bg {
@@ -223,12 +223,12 @@ body.light-mode {
 
 #profile-pic {
   position: absolute;
-  top: 65%;
+  top: 63%;
   left: 20%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  width: 12vw;
-  height: 12vw;
+  width: clamp(50px, 12vw, 200px);
+  height: clamp(50px, 12vw, 200px);
   object-fit: cover;
   object-position: center;
 }
@@ -237,20 +237,20 @@ body.light-mode {
   text-align: left;
   padding-top: 13vw;
   padding-left: 17vw;
-  font-size: 1.5vw;
+  font-size: clamp(1rem, 1.5vw, 2rem);
 }
 
 #about-profession {
   text-align: left;
   padding-left: 17vw;
-  font-size: 1.2vw;
+  font-size: clamp(0.8rem, 1.2vw, 1.6rem);
 }
 
 #about-desc {
   text-align: left;
-  padding-top: 0.5rem;
+  padding-top: 0.5vh;
   padding-left: 17vw;
-  font-size: 1vw;
+  font-size: clamp(0.8rem, 1vw, 1.4rem);
 }
 
 #projects {
@@ -261,32 +261,32 @@ body.light-mode {
   position: relative;
   font-family: "Fira Code", monospace;
   width: 100%;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 5vh;
+  padding-bottom: 12vh;
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
 #projects-title {
   text-align: center;
-  padding-top: 7rem;
-  font-size: 2.5vw;
+  padding-top: 15vh;
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
 }
 
 #project {
   text-align: center;
-  padding-top: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: 1.75vw;
+  padding-top: 2vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  font-size: clamp(1rem, 1.5vw, 2rem);
 }
 
 #projects-desc {
   text-align: center;
-  padding-top: 0.25rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: 1.25vw;
+  padding-top: 0.25vh;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  font-size: clamp(0.8rem, 1vw, 1.4rem);
 }
 
 #projects-desc a {
@@ -334,11 +334,11 @@ body.light-mode #download {
 #back-to-top {
   z-index: 99;
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 1vw;
+  right: 1vw;
   border-radius: 12px;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  padding: 0.5vw 1vw;
+  font-size: 1.5vw;
   cursor: pointer;
   border: none;
   opacity: 0;
@@ -365,8 +365,8 @@ body.light-mode #back-to-top {
   align-items: center;
   font-family: "Fira Code", monospace;
   text-align: center;
-  padding-bottom: 1rem;
-  font-size: 0.75vw;
+  padding-bottom: 1vh;
+  font-size: clamp(0.5rem, 0.75vw, 1rem);
   background-color: var(--background-color);
   color: var(--text-color);
 }
