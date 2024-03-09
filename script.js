@@ -1,4 +1,15 @@
-// Importing required modules
+/*
+  Creeper76's Software License
+  
+  Copyright (c) 2024 Creeper76
+
+  This software is licensed under the terms of Creeper76's Software License.
+  See the LICENSE file for more details.
+
+  This software is provided "as is", without warranty of any kind, express or implied.
+  The author(s) of the software are not liable for any damages or losses arising from the use of the software.
+*/
+
 import { getDeviceType, getBrowser } from "./assets/scripts/checkDevice.js";
 
 // DOM elements
@@ -7,6 +18,8 @@ const themeToggle = document.getElementById("theme-toggle");
 const sunIcon = themeToggle.querySelector(".fa-sun");
 const moonIcon = themeToggle.querySelector(".fa-moon");
 const scrollButton = document.getElementById("back-to-top");
+const dropArea = document.getElementById("drop-area");
+const fileInput = document.getElementById("website");
 
 // * Testing mouse trail. Temporarily disabled because of performance issues.
 /*var lastMouseX;
@@ -140,6 +153,19 @@ window.onload = function () {
     },
     false
   );
+
+  fileInput.addEventListener("change", function () {
+    if (this.files && this.files[0]) {
+      console.log("File selected:", this.files[0]); // Add this line
+      dropArea.textContent = "Uploading, please wait";
+      dropArea.classList.add("uploading");
+    }
+  });
+
+  fileInput.addEventListener("loadend", function () {
+    dropArea.textContent = "Drop file here or click to upload";
+    dropArea.classList.remove("uploading");
+  });
 };
 
 // Add event listener for theme toggle
@@ -244,30 +270,40 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 // Website uploader
 function uploadWebsite(file) {
+  var xhr = new XMLHttpRequest();
   var formData = new FormData();
   formData.append("website", file);
+  var startTime = Date.now();
+  const uploadData = document.getElementById("upload-data");
 
-  fetch("http://custom.maxreinartz.me/upload", {
-    method: "POST",
-    body: formData,
-  })
-    .then((response) => {
-      if (!response.ok) {
-        if (response.status === 413) {
-          throw new Error("File is too large. It must be less than 100 MB.");
-        }
-        throw new Error("An error occurred while uploading the file.");
-      }
-      return response.json();
-    })
-    .then((data) => {
+  xhr.upload.addEventListener("progress", function (e) {
+    if (e.lengthComputable) {
+      const percentComplete = ((e.loaded / e.total) * 100).toFixed(1);
+      const timeElapsed = Date.now() - startTime;
+      const speed = e.loaded / (timeElapsed / 1000);
+      const speedInMbps = (speed / (1024 * 1024)).toFixed(2);
+      const uploadedInMb = (e.loaded / (1024 * 1024)).toFixed(2);
+
+      uploadData.textContent = `Uploaded: ${uploadedInMb} MB (${percentComplete}%), Speed: ${speedInMbps} MB/s`;
+    }
+  });
+
+  xhr.open("POST", "http://custom.maxreinartz.me/upload", true);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      var data = JSON.parse(xhr.responseText);
       document.getElementById("id").textContent = "ID: " + data.id;
       var url = "http://custom.maxreinartz.me/" + data.id;
       document.getElementById("url").innerHTML =
         'URL: <a href="' + url + '" target="_blank">' + url + "</a>";
       document.getElementById("bubble").style.display = "block";
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
+    } else {
+      if (xhr.status === 413) {
+        alert("File is too large. It must be less than 100 MB.");
+      } else {
+        alert("An error occurred while uploading the file.");
+      }
+    }
+  };
+  xhr.send(formData);
 }
