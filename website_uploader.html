@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Website</title>
+  <script>
+    function uploadWebsite(event) {
+      event.preventDefault(); // Prevent form from submitting normally
+
+      var formData = new FormData();
+      formData.append('website', document.getElementById('website').files[0]);
+
+      fetch('http://pnode3.danbot.host:6048/upload', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('id').textContent = 'ID: ' + data.id;
+        document.getElementById('password').textContent = 'Password: ' + data.password;
+      })
+      .catch(error => console.error('Error:', error));
+    }
+  </script>
+</head>
+<body>
+  <form onsubmit="uploadWebsite(event)"> <!-- Pass the event to your function -->
+    <input type="file" id="website" accept=".zip">
+    <input type="submit" value="Upload">
+  </form>
+  <p id="id"></p>
+  <p id="password"></p>
+</body>
+</html>
