@@ -74,11 +74,12 @@ window.onload = function () {
       mainContent.classList.add("hide-content");
     }
   }
-  
+
   if (getBrowser() === "Safari") {
-    var message = document.createElement('div');
-    message.id = 'safari-message';
-    message.textContent = 'Warning: This website may not work properly on Safari. Please use a different browser for the best experience.';
+    var message = document.createElement("div");
+    message.id = "safari-message";
+    message.textContent =
+      "Warning: This website may not work properly on Safari. Please use a different browser for the best experience.";
     document.body.appendChild(message);
   }
 
@@ -88,6 +89,57 @@ window.onload = function () {
     warningBubble.style.display = "none";
     continueButton.style.display = "none";
   };
+
+  var dropArea = document.getElementById("drop-area");
+
+  ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+    dropArea.addEventListener(eventName, preventDefaults, false);
+  });
+
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  ["dragenter", "dragover"].forEach((eventName) => {
+    dropArea.addEventListener(eventName, highlight, false);
+  });
+
+  ["dragleave", "drop"].forEach((eventName) => {
+    dropArea.addEventListener(eventName, unhighlight, false);
+  });
+
+  function highlight(e) {
+    dropArea.classList.add("hover");
+  }
+
+  function unhighlight(e) {
+    dropArea.classList.remove("hover");
+  }
+
+  dropArea.addEventListener("drop", handleDrop, false);
+
+  function handleDrop(e) {
+    var dt = e.dataTransfer;
+    var file = dt.files[0];
+    uploadWebsite(file);
+  }
+
+  dropArea.addEventListener(
+    "click",
+    function () {
+      document.getElementById("website").click();
+    },
+    false
+  );
+
+  document.getElementById("website").addEventListener(
+    "change",
+    function () {
+      uploadWebsite(this.files[0]);
+    },
+    false
+  );
 };
 
 // Add event listener for theme toggle
@@ -189,3 +241,33 @@ window.addEventListener("DOMContentLoaded", (event) => {
     move();
   }
 });
+
+// Website uploader
+function uploadWebsite(file) {
+  var formData = new FormData();
+  formData.append("website", file);
+
+  fetch("http://custom.maxreinartz.me/upload", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        if (response.status === 413) {
+          throw new Error("File is too large. It must be less than 100 MB.");
+        }
+        throw new Error("An error occurred while uploading the file.");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      document.getElementById("id").textContent = "ID: " + data.id;
+      var url = "http://custom.maxreinartz.me/" + data.id;
+      document.getElementById("url").innerHTML =
+        'URL: <a href="' + url + '" target="_blank">' + url + "</a>";
+      document.getElementById("bubble").style.display = "block";
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+}

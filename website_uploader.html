@@ -1,144 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Upload Website</title>
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #1f1f1f;
-        font-family: Arial, sans-serif;
-      }
-      #drop-area {
-        border: 2px dashed #ccc;
-        width: 600px;
-        height: 600px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        cursor: pointer;
-        font-size: 2vw;
-      }
-      #drop-area.hover {
-        border-color: #f00;
-      }
-      #bubble {
-        position: absolute;
-        background-color: #5c5c5c;
-        font-size: 1vw;
-        border-radius: 10px;
-        padding: 5vw;
-        display: none;
-      }
-      #bubble a {
-        color: #fff;
-        text-decoration: underline;
-      }
-      #title {
-        font-size: 2vw;
-        margin-bottom: 2vw;
-        text-align: center;
-      }
-    </style>
-    <script>
-      function uploadWebsite(file) {
-        var formData = new FormData();
-        formData.append("website", file);
-
-        fetch("http://custom.maxreinartz.me/upload", {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => {
-            if (!response.ok) {
-              if (response.status === 413) {
-                throw new Error(
-                  "File is too large. It must be less than 100 MB."
-                );
-              }
-              throw new Error("An error occurred while uploading the file.");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            document.getElementById("id").textContent = "ID: " + data.id;
-            var url = "http://custom.maxreinartz.me/" + data.id;
-            document.getElementById("url").innerHTML =
-              'URL: <a href="' + url + '" target="_blank">' + url + "</a>";
-            document.getElementById("bubble").style.display = "block";
-          })
-          .catch((error) => {
-            alert(error.message);
-          });
-      }
-
-      window.onload = function () {
-        var dropArea = document.getElementById("drop-area");
-
-        ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
-          dropArea.addEventListener(eventName, preventDefaults, false);
-        });
-
-        function preventDefaults(e) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-
-        ["dragenter", "dragover"].forEach((eventName) => {
-          dropArea.addEventListener(eventName, highlight, false);
-        });
-
-        ["dragleave", "drop"].forEach((eventName) => {
-          dropArea.addEventListener(eventName, unhighlight, false);
-        });
-
-        function highlight(e) {
-          dropArea.classList.add("hover");
-        }
-
-        function unhighlight(e) {
-          dropArea.classList.remove("hover");
-        }
-
-        dropArea.addEventListener("drop", handleDrop, false);
-
-        function handleDrop(e) {
-          var dt = e.dataTransfer;
-          var file = dt.files[0];
-          uploadWebsite(file);
-        }
-
-        dropArea.addEventListener(
-          "click",
-          function () {
-            document.getElementById("website").click();
-          },
-          false
-        );
-
-        document.getElementById("website").addEventListener(
-          "change",
-          function () {
-            uploadWebsite(this.files[0]);
-          },
-          false
-        );
-      };
-    </script>
+    <title>Max | Website Uploader</title>
+    <!-- Link to the CSS stylesheets -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <head>
+      <link rel="icon" href="assets/icon.png" type="image/png">
+    </head>
   </head>
-  <body>
-    <div id="drop-area">Drop file here or click to upload</div>
-    <input type="file" id="website" accept=".zip" style="display: none" />
-    <div id="bubble">
-      <p id="title">
-        Your website has been uploaded! You can access it at the following URL:
+  <body class="dark-mode" id="upload-body">
+    <!-- Mobile warning -->
+    <div id="warning-bubble" style="display: none">
+      <p>
+        Whoops, the website isn't made for mobile. If you would like to
+        continue, press the button below.
       </p>
-      <p id="url"></p>
-      <p id="id"></p>
+      <button id="continue-button">Continue</button>
     </div>
+    <main>
+      <div id="drop-area">Drop file here or click to upload</div>
+      <input type="file" id="website" accept=".zip" style="display: none" />
+      <div id="bubble">
+        <p id="title-uploader">
+          Your website has been uploaded! You can access it at the following URL:
+        </p>
+        <p id="url"></p>
+        <p id="id"></p>
+      </div>
+      <!-- Theme toggle button -->
+      <button id="theme-toggle" class="theme-toggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon" style="display: none"></i>
+      </button>
+      <a href="index.html">
+        <button id="home" class="home">
+          <i class="fas fa-home"></i>
+        </button>
+      </a>
+    </main>
+    <!-- Link to the JavaScript files -->
+    <script type="module" src="script.js"></script>
   </body>
 </html>
