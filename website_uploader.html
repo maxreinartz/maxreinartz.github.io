@@ -1,33 +1,132 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Upload Website</title>
-  <script>
-    function uploadWebsite(event) {
-      event.preventDefault(); // Prevent form from submitting normally
+  <head>
+    <title>Upload Website</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #1f1f1f;
+        font-family: Arial, sans-serif;
+      }
+      #drop-area {
+        border: 2px dashed #ccc;
+        width: 600px;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+        font-size: 2vw;
+      }
+      #drop-area.hover {
+        border-color: #f00;
+      }
+      #bubble {
+        position: absolute;
+        background-color: #5c5c5c;
+        font-size: 1vw;
+        border-radius: 10px;
+        padding: 5vw;
+        display: none;
+      }
+      #bubble a {
+        color: #fff;
+        text-decoration: underline;
+      }
+      #title {
+        font-size: 2vw;
+        margin-bottom: 2vw;
+        text-align: center;
+      }
+    </style>
+    <script>
+      function uploadWebsite(file) {
+        var formData = new FormData();
+        formData.append("website", file);
 
-      var formData = new FormData();
-      formData.append('website', document.getElementById('website').files[0]);
+        fetch("http://pnode3.danbot.host:6048/upload", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("id").textContent = "ID: " + data.id;
+            var url = "http://pnode3.danbot.host:6048/" + data.id;
+            document.getElementById("url").innerHTML =
+              'URL: <a href="' + url + '" target="_blank">' + url + "</a>";
+            document.getElementById("bubble").style.display = "block";
+          })
+          .catch((error) => console.error("Error:", error));
+      }
 
-      fetch('http://pnode3.danbot.host:6048/upload', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('id').textContent = 'ID: ' + data.id;
-        document.getElementById('password').textContent = 'Password: ' + data.password;
-      })
-      .catch(error => console.error('Error:', error));
-    }
-  </script>
-</head>
-<body>
-  <form onsubmit="uploadWebsite(event)"> <!-- Pass the event to your function -->
-    <input type="file" id="website" accept=".zip">
-    <input type="submit" value="Upload">
-  </form>
-  <p id="id"></p>
-  <p id="password"></p>
-</body>
+      window.onload = function () {
+        var dropArea = document.getElementById("drop-area");
+
+        ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+          dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+
+        ["dragenter", "dragover"].forEach((eventName) => {
+          dropArea.addEventListener(eventName, highlight, false);
+        });
+
+        ["dragleave", "drop"].forEach((eventName) => {
+          dropArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight(e) {
+          dropArea.classList.add("hover");
+        }
+
+        function unhighlight(e) {
+          dropArea.classList.remove("hover");
+        }
+
+        dropArea.addEventListener("drop", handleDrop, false);
+
+        function handleDrop(e) {
+          var dt = e.dataTransfer;
+          var file = dt.files[0];
+          uploadWebsite(file);
+        }
+
+        dropArea.addEventListener(
+          "click",
+          function () {
+            document.getElementById("website").click();
+          },
+          false
+        );
+
+        document.getElementById("website").addEventListener(
+          "change",
+          function () {
+            uploadWebsite(this.files[0]);
+          },
+          false
+        );
+      };
+    </script>
+  </head>
+  <body>
+    <div id="drop-area">Drop file here or click to upload</div>
+    <input type="file" id="website" accept=".zip" style="display: none" />
+    <div id="bubble">
+      <p id="title">
+        Your website has been uploaded! You can access it at the following URL:
+      </p>
+      <p id="url"></p>
+      <p id="id"></p>
+    </div>
+  </body>
 </html>
