@@ -49,7 +49,7 @@
         var formData = new FormData();
         formData.append("website", file);
 
-        fetch("http://pnode3.danbot.host:6048/upload", {
+        fetch("http://custom.maxreinartz.me/upload", {
           method: "POST",
           body: formData,
         })
@@ -66,7 +66,7 @@
           })
           .then((data) => {
             document.getElementById("id").textContent = "ID: " + data.id;
-            var url = "http://pnode3.danbot.host:6048/" + data.id;
+            var url = "http://custom.maxreinartz.me/" + data.id;
             document.getElementById("url").innerHTML =
               'URL: <a href="' + url + '" target="_blank">' + url + "</a>";
             document.getElementById("bubble").style.display = "block";
