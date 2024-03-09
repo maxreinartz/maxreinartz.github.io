@@ -53,7 +53,17 @@
           method: "POST",
           body: formData,
         })
-          .then((response) => response.json())
+          .then((response) => {
+            if (!response.ok) {
+              if (response.status === 413) {
+                throw new Error(
+                  "File is too large. It must be less than 100 MB."
+                );
+              }
+              throw new Error("An error occurred while uploading the file.");
+            }
+            return response.json();
+          })
           .then((data) => {
             document.getElementById("id").textContent = "ID: " + data.id;
             var url = "http://pnode3.danbot.host:6048/" + data.id;
@@ -61,7 +71,9 @@
               'URL: <a href="' + url + '" target="_blank">' + url + "</a>";
             document.getElementById("bubble").style.display = "block";
           })
-          .catch((error) => console.error("Error:", error));
+          .catch((error) => {
+            alert(error.message);
+          });
       }
 
       window.onload = function () {
