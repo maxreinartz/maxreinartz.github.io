@@ -294,8 +294,9 @@ function uploadWebsite(file) {
       var data = JSON.parse(xhr.responseText);
       document.getElementById("id").textContent = "ID: " + data.id;
       var url = "http://custom.maxreinartz.me/" + data.id;
+      var altU = "http://pnode3.danbot.host:6048/" + data.id
       document.getElementById("url").innerHTML =
-        'URL: <a href="' + url + '" target="_blank">' + url + "</a>";
+        'URL: <a href="' + url + '" target="_blank">' + url + '</a> or <a href="' + altUrl + '" target="_blank">' + altUrl + '</a>;
       document.getElementById("bubble").style.display = "block";
     } else {
       if (xhr.status === 413) {
