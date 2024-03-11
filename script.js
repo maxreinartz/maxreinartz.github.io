@@ -288,7 +288,7 @@ function uploadWebsite(file) {
     }
   });
 
-  xhr.open("POST", "http://custom.maxreinartz.me/upload", true);
+  xhr.open("POST", "http://pnode3.danbot.host:6048/upload", true);
   xhr.onload = function () {
     if (xhr.status === 200) {
       var data = JSON.parse(xhr.responseText);
