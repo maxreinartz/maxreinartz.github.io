@@ -12,6 +12,12 @@
 
 /* For some of the themes, I took inspiration from different places in Windows UI as it looks clean. (I am not associated with Microsoft or Windows in any way) */
 
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* * Fonts */
 /* The FiraCode font is soooooo good! */
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap");
@@ -478,8 +484,10 @@ body.light-mode #back-to-top {
 }
 
 /* * Footer */
+
 #footer {
   display: flex;
+  margin-top: auto;
   justify-content: center;
   align-items: center;
   font-family: "Fira Code", monospace;
