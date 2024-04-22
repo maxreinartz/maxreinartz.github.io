@@ -69,7 +69,7 @@ window.onload = function () {
   console.log("Device type:", getDeviceType());
   console.log("Browser:", getBrowser());
 
-  const savedTheme = localStorage.getItem("theme") || "light-mode";
+  const savedTheme = localStorage.getItem("theme") || "dark-mode";
   updateTheme(savedTheme);
 
   const warningBubble = document.getElementById("warning-bubble");
