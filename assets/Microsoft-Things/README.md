@@ -1,1 +1,0 @@
-I like Microsoft as a company, so I may make a page on my website with various Microsoft things. All files in the folder are Microsoft related in one way or another.
