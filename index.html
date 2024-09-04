@@ -1,121 +1,29 @@
-<!--
-  Creeper76's Software License
-  
-  Copyright (c) 2024 Creeper76
-
-  This software is licensed under the terms of Creeper76's Software License.
-  See the LICENSE file for more details.
-
-  This software is provided "as is", without warranty of any kind, express or implied.
-  The author(s) of the software are not liable for any damages or losses arising from the use of the software.
--->
-
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<!-- If anyone reads this, just note that I'm not a web developer! -->
-<html>
-  <head>
-    <title>Hi, I'm Max!</title>
-    <!-- Link to the CSS stylesheets -->
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <head>
-      <link rel="icon" href="assets/icon.png" type="image/png" />
-    </head>
-  </head>
-  <body class="dark-mode">
-    <!-- Mobile warning -->
-    <div id="warning-bubble" style="display: none">
-      <p>
-        Whoops, the website isn't made for mobile. If you would like to
-        continue, press the button below.
-      </p>
-      <button id="continue-button">Continue</button>
-    </div>
-    <main>
-      <!-- Back to top button -->
-      <button id="back-to-top" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-      </button>
-      <!-- Title -->
-      <div id="title">
-        <!-- Background dots -->
-        <div id="background">
-          <div class="dot" id="dot1"></div>
-          <div class="dot" id="dot2"></div>
-          <div class="dot" id="dot3"></div>
-          <div class="dot" id="dot4"></div>
-          <div class="dot" id="dot5"></div>
-        </div>
-        <!-- Typing text -->
-        <div id="HelloWorld">
-          <div
-            class="typer-text"
-            data-text='["Hi, I&apos;m Max!", "I enjoy coding in C and Python."]'
-          ></div>
-        </div>
-        <!-- Theme toggle button -->
-        <button id="theme-toggle" class="theme-toggle">
-          <i class="fas fa-sun"></i>
-          <i class="fas fa-moon" style="display: none"></i>
-        </button>
-      </div>
-      <!-- About me -->
-      <div id="about">
-        <p id="about-title">About Me</p>
-        <div id="profile-bg">
-          <img src="/assets/profile.jpg" id="profile-pic" />
-          <p id="about-name">Max Reinartz</p>
-          <p id="about-profession">Programmer</p>
-          <p id="about-desc">
-            I'm a programmer who enjoys coding in C and Python. I have also used
-            other languages such as C++, Java, JavaScript, and HTML/CSS.
-          </p>
-        </div>
-      </div>
-      <!-- Projects -->
-      <div id="projects">
-        <p id="projects-title">Projects</p>
-        <div id="project">
-          <div id="project-background">
-            <p>Cherry Blossoms</p>
-            <p id="projects-desc">
-              Watch cherry blossoms fall, draw white cherry blossoms, create
-              fireworks & more!<br />
-              You can check out the source code
-              <a href="https://github.com/Creeper76/CherryBlossoms" target="_blank">here</a>.
-            </p>
-          </div>
-        </div>
-        <div id="project">
-          <div id="project-background">
-            <p>Penguin API</p>
-            <p id="projects-desc">
-              Get random penguin images with different styles, which were
-              created with AI!<br />
-              You can check out the source code
-              <a href="https://github.com/Creeper76/PenguinAPI/" target="_blank">here</a>, and
-              the API <a href="http://penguin.api.maxreinartz.me/" target="_blank">here</a>.
-            </p>
-          </div>
-        </div>
-        <p id="more-projects">
-          <a href="/other-projects.html">See more projects</a>
-        </p>
-      </div>
-      <!-- Footer with license -->
-      <div id="footer">
-        <p>
-          Copyright (c) 2024 Creeper76 -
-          <a href="/fancy_license.html">LICENSE</a>
-        </p>
-      </div>
-    </main>
-    <!-- Link to the JavaScript files -->
-    <script type="module" src="script.js"></script>
-    <script src="assets/scripts/typer.js"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hi! I'm Max</title>
+  <meta name="description" content="Hi! I'm Max, a developer specializing in C.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Shader -->
+  <canvas id="background-shader"></canvas>
+  <!-- Typing text -->
+  <div id="hello">
+    <div
+      class="typer-text"
+      data-text='["Hi, I&apos;m Max!", "I enjoy coding in C and Java."]'
+    ></div>
+  </div>
+  <!-- Footer -->
+  <div id="footer">
+    <p>Copyright (c) 2024 Max Reinartz</p>
+  </div>
+  <!-- Scripts -->
+  <script src="/assets/typer.js"></script>
+  <script src="/assets/bgShader.js"></script>
+  <script src="/script.js"></script>
+</body>
 </html>
