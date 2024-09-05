@@ -16,6 +16,7 @@ const fragmentShaderSource = `
   uniform vec2 u_resolution;
   uniform vec3 u_colors[5];
   uniform vec2 u_centers[5];
+  uniform float u_radius;
 
   float ball(vec2 st, vec2 center, float radius) {
     // Normalize the coordinates to maintain aspect ratio
@@ -23,17 +24,15 @@ const fragmentShaderSource = `
     vec2 normalizedSt = st * aspect;
     vec2 normalizedCenter = center * aspect;
     float dist = length(normalizedSt - normalizedCenter);
-    return smoothstep(radius + 0.5, radius - 0.3, dist); // Increase blur radius
+    return smoothstep(radius + 0.5, radius - 0.3, dist);
   }
 
   void main() {
     vec2 st = gl_FragCoord.xy / u_resolution;
-    vec3 color = vec3(0.0); // Black background
+    vec3 color = vec3(0.0);
 
-    // Define ball radius
-    float radius = 0.15;
+    float radius = u_radius;
 
-    // Draw balls
     for (int i = 0; i < 5; i++) {
       float b = ball(st, u_centers[i], radius);
       color += u_colors[i] * b;
@@ -136,3 +135,13 @@ function updateCenters() {
 }
 
 updateCenters();
+
+function calculateRadius() {
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+  const radius = Math.min(screenWidth, screenHeight) * 0.0006;
+  gl.uniform1f(gl.getUniformLocation(program, 'u_radius'), radius);
+  console.log("[DEBUG] Radius : ", radius);
+}
+
+calculateRadius();

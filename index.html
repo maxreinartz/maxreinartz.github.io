@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hi! I'm Max</title>
-  <meta name="description" content="Hi! I'm Max, a developer specializing in C.">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Background Shader -->
-  <canvas id="background-shader"></canvas>
-  <!-- Typing text -->
-  <div id="hello">
-    <div
-      class="typer-text"
-      data-text='["Hi, I&apos;m Max!", "I enjoy coding in C and Java."]'
-    ></div>
-  </div>
-  <!-- Footer -->
-  <div id="footer">
-    <p>Copyright (c) 2024 Max Reinartz</p>
-  </div>
-  <!-- Scripts -->
-  <script src="/assets/typer.js"></script>
-  <script src="/assets/bgShader.js"></script>
-  <script src="/script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hi! I'm Max</title>
+    <meta
+      name="description"
+      content="Hi! I'm Max, a developer specializing in C."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Background Shader -->
+    <canvas id="background-shader"></canvas>
+    <!-- Typing text -->
+    <div id="content-wrapper">
+      <div id="hello">
+        <div
+          class="typer-text"
+          data-text='["Hi, I&apos;m Max!", "I enjoy coding in C and Java."]'
+        ></div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div id="footer">
+      <p>Copyright (c) 2024 Max Reinartz</p>
+    </div>
+    <!-- Scripts -->
+    <script src="/assets/typer.js"></script>
+    <script src="/assets/bgShader.js"></script>
+    <script src="/script.js"></script>
+  </body>
 </html>

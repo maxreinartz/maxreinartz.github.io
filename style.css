@@ -5,6 +5,10 @@ body, html {
   width: 100%;
   height: 100%;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #background-shader {
@@ -16,24 +20,33 @@ body, html {
   z-index: -1;
 }
 
+#content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
 #hello {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-size: clamp(1.5rem, 2.5vw, 3rem);
   font-family: "Fira Code", monospace;
 }
 
 #footer {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
   font-size: clamp(0.6rem, 1.0vw, 1.2rem);
   font-family: "Fira Code", monospace;
   color: rgba(255, 255, 255, 0.5);
+}
+
+#acrylic {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 1px 10px;
 }
 
 :root {
