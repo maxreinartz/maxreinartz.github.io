@@ -9,17 +9,52 @@
       content="Hi! I'm Max, a developer specializing in C."
     />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <head>
+      <link rel="icon" href="/assets/img/icon.png" type="image/png" />
+    </head>
   </head>
   <body>
     <!-- Background Shader -->
     <canvas id="background-shader"></canvas>
-    <!-- Typing text -->
+    <!--- Content -->
     <div id="content-wrapper">
+      <!-- Typing text -->
       <div id="hello">
         <div
           class="typer-text"
           data-text='["Hi, I&apos;m Max!", "I enjoy coding in C and Java."]'
         ></div>
+      </div>
+      <!-- About Section -->
+      <div id="about-section" class="acrylic">
+        <img src="/assets/img/profile.jpg" alt="Profile Image" />
+        <div class="title">Max Reinartz</div>
+        <div class="profession">Software Developer</div>
+        <div class="description">
+          Hi! I'm Max, a developer specializing in C and Java. I enjoy creating
+          random projects and learning new things!
+        </div>
+        <div class="social-links">
+          <!-- Github -->
+          <a href="https://github.com/Creeper76" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+          <!-- Discord -->
+          <a
+            href="https://discord.com/users/777694273319469057"
+            target="_blank"
+          >
+            <i class="fab fa-discord"></i>
+          </a>
+          <!-- Email -->
+          <a href="mailto:contactcreeper76@gmail.com">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
       </div>
     </div>
     <!-- Footer -->
