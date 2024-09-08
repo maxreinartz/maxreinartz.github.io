@@ -1,6 +1,68 @@
 body,
 html {
   background-color: rgba(0, 0, 0, 0); 
+  color: white;
+}
+
+#about-section .title {
+  color: rgb(255, 255, 255);
+}
+
+#about-section .profession {
+  color: rgb(230, 230, 230);
+}
+
+#about-section .description {
+  color: rgb(235, 235, 235);
+}
+
+#about-section .social-links a {
+  color: rgb(225, 225, 225);
+}
+
+#about-section .social-links a:hover {
+  color: #4b0082;
+}
+
+#about-section .social-links a:active {
+  color: #800080;
+}
+
+.projects-title {
+  color: rgb(255, 255, 255);
+}
+
+.project-item .project-name {
+  color: rgb(255, 255, 255);
+}
+
+.project-item .project-description {
+  color: rgb(235, 235, 235);
+}
+
+.project-item .project-links a {
+  color: rgb(225, 225, 225);
+}
+
+.project-item .project-links a:hover {
+  color: #4b0082;
+}
+
+.project-item .project-links a:active {
+  color: #800080;
+}
+
+#footer {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.acrylic {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 :root {
