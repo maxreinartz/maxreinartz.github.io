@@ -6,7 +6,7 @@ html {
   overflow-x: hidden;
   width: 100%;
   height: auto;
-  color: #333;
+  color: white;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -45,11 +45,11 @@ html {
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   width: calc(100% - 3vw);
   min-height: 45%;
@@ -69,21 +69,20 @@ html {
 #about-section .title {
   font-size: 1.8rem;
   font-family: "Fira Code", monospace;
-  color: #333;
-  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
 }
 
 #about-section .profession {
   font-size: 1.2rem;
   font-family: "Fira Code", monospace;
-  color: #555;
+  color: rgb(230, 230, 230);
   margin-bottom: 20px;
 }
 
 #about-section .description {
   font-size: 1rem;
   font-family: "Fira Code", monospace;
-  color: #444;
+  color: rgb(235, 235, 235);
   text-align: center;
   line-height: 1.5;
 }
@@ -95,7 +94,7 @@ html {
 }
 
 #about-section .social-links a {
-  color: #555;
+  color: rgb(225, 225, 225);
   transition: color 0.3s ease;
   margin: 0 5px;
 }
@@ -120,13 +119,21 @@ html {
   align-items: center;
 }
 
+.projects-title {
+  font-size: 2rem;
+  font-family: "Fira Code", monospace;
+  color: rgb(255, 255, 255);
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
 .project-item {
   width: 90%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   margin-bottom: 20px;
   padding: 15px;
@@ -148,7 +155,7 @@ html {
 .project-item .project-name {
   font-size: 1.5rem;
   font-family: "Fira Code", monospace;
-  color: #333;
+  color: rgb(255, 255, 255);
   margin-bottom: 10px;
   text-align: center;
 }
@@ -161,7 +168,7 @@ html {
 .project-item .project-description {
   font-size: 1rem;
   font-family: "Fira Code", monospace;
-  color: #444;
+  color: rgb(235, 235, 235);
   text-align: center;
   margin-bottom: 10px;
 }
@@ -172,7 +179,7 @@ html {
 }
 
 .project-item .project-links a {
-  color: #555;
+  color: rgb(225, 225, 225);
   transition: color 0.3s ease;
   margin: 0 5px;
 }
@@ -188,7 +195,7 @@ html {
 #footer {
   font-size: clamp(0.6rem, 1vw, 1.2rem);
   font-family: "Fira Code", monospace;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 :root {

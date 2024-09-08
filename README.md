@@ -7,6 +7,7 @@ This is my website and you can check it out at [maxreinartz.me](http://maxreinar
 1. Add more info
 2. Implement light mode
 3. Test website at different resolutions
+4. Fix some minor mobile issues
 
 ## LICENSE
 
