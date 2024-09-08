@@ -1,5 +1,5 @@
-const canvas = document.getElementById('background-shader');
-const gl = canvas.getContext('webgl');
+const canvas = document.getElementById("background-shader");
+const gl = canvas.getContext("webgl");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -17,6 +17,7 @@ const fragmentShaderSource = `
   uniform vec3 u_colors[5];
   uniform vec2 u_centers[5];
   uniform float u_radius;
+  uniform vec3 u_bgColor;
 
   float ball(vec2 st, vec2 center, float radius) {
     // Normalize the coordinates to maintain aspect ratio
@@ -29,13 +30,13 @@ const fragmentShaderSource = `
 
   void main() {
     vec2 st = gl_FragCoord.xy / u_resolution;
-    vec3 color = vec3(0.0);
+    vec3 color = u_bgColor;
 
     float radius = u_radius;
 
     for (int i = 0; i < 5; i++) {
       float b = ball(st, u_centers[i], radius);
-      color += u_colors[i] * b;
+      color = mix(color, u_colors[i], b);
     }
 
     gl_FragColor = vec4(color, 1.0);
@@ -65,25 +66,38 @@ if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
   console.error(gl.getProgramInfoLog(program));
 }
 
-const positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
-const resolutionUniformLocation = gl.getUniformLocation(program, 'u_resolution');
-const colorsUniformLocation = gl.getUniformLocation(program, 'u_colors');
-const centersUniformLocation = gl.getUniformLocation(program, 'u_centers');
+const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+const resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
+const colorsUniformLocation = gl.getUniformLocation(program, "u_colors");
+const centersUniformLocation = gl.getUniformLocation(program, "u_centers");
+const bgColorUniformLocation = gl.getUniformLocation(program, "u_bgColor");
 
 const positionBuffer = gl.createBuffer();
 gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-const positions = [
-  -1, -1,
-   1, -1,
-  -1,  1,
-  -1,  1,
-   1, -1,
-   1,  1,
-];
+const positions = [-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1];
 gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
+const rootStyles = getComputedStyle(document.documentElement);
+
+const bgColor = rootStyles.getPropertyValue("--bg-color").trim();
+let bgColors;
+
+if (bgColor.startsWith("rgb")) {
+  const rgbValues = bgColor.match(/\d+/g).map(Number);
+  bgColors = rgbValues.map((x) => x / 255);
+} else {
+  const hexValues = bgColor.match(/\w\w/g);
+  if (hexValues) {
+    bgColors = hexValues.map((x) => parseInt(x, 16) / 255);
+  } else {
+    console.error("Invalid bgColor format");
+  }
+}
+
+console.log("[DEBUG] Background Color : ", bgColors);
+
 gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-gl.clearColor(0, 0, 0, 0);
+gl.clearColor(0, 0, 0, 1);
 gl.clear(gl.COLOR_BUFFER_BIT);
 
 gl.useProgram(program);
@@ -92,19 +106,21 @@ gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
 
 gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
+gl.uniform3fv(bgColorUniformLocation, bgColors);
 
-const rootStyles = getComputedStyle(document.documentElement);
 const colorVariables = [
-  '--dot1-color',
-  '--dot2-color',
-  '--dot3-color',
-  '--dot4-color',
-  '--dot5-color'
+  "--dot1-color",
+  "--dot2-color",
+  "--dot3-color",
+  "--dot4-color",
+  "--dot5-color",
 ];
-const colors = new Float32Array(colorVariables.flatMap(varName => {
-  const color = rootStyles.getPropertyValue(varName).trim();
-  return color.match(/\w\w/g).map(x => parseInt(x, 16) / 255);
-}));
+const colors = new Float32Array(
+  colorVariables.flatMap((varName) => {
+    const color = rootStyles.getPropertyValue(varName).trim();
+    return color.match(/\w\w/g).map((x) => parseInt(x, 16) / 255);
+  })
+);
 gl.uniform3fv(colorsUniformLocation, colors);
 
 function getRandomPosition() {
@@ -140,7 +156,7 @@ function calculateRadius() {
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
   const radius = Math.min(screenWidth, screenHeight) * 0.0006;
-  gl.uniform1f(gl.getUniformLocation(program, 'u_radius'), radius);
+  gl.uniform1f(gl.getUniformLocation(program, "u_radius"), radius);
   console.log("[DEBUG] Radius : ", radius);
 }
 

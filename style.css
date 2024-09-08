@@ -10,6 +10,7 @@ html {
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: black;
 }
 
 #background-shader {
@@ -45,12 +46,6 @@ html {
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
   width: calc(100% - 3vw);
   min-height: 45%;
   height: auto;
@@ -129,12 +124,6 @@ html {
 
 .project-item {
   width: 90%;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
   margin-bottom: 20px;
   padding: 15px;
   display: flex;
@@ -192,16 +181,29 @@ html {
   color: #800080;
 }
 
+#theme-toggle {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
 #footer {
   font-size: clamp(0.6rem, 1vw, 1.2rem);
   font-family: "Fira Code", monospace;
   color: rgba(255, 255, 255, 0.5);
 }
 
-:root {
-  --dot1-color: #800080; /* Purple */
-  --dot2-color: #4b0082; /* Indigo */
-  --dot3-color: #0000ff; /* Blue */
-  --dot4-color: #00bfff; /* Deep Sky Blue */
-  --dot5-color: #00ffff; /* Cyan */
+.acrylic {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }

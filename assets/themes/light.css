@@ -1,0 +1,13 @@
+body,
+html {
+  background-color: rgba(0, 0, 0, 0); 
+}
+
+:root {
+  --dot1-color: #ff0000;
+  --dot2-color: #ff4000;
+  --dot3-color: #ff8000;
+  --dot4-color: #ffc000;
+  --dot5-color: #ffff00;
+  --bg-color: rgb(255, 255, 255);
+}
