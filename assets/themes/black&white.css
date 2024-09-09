@@ -1,66 +1,66 @@
 body,
 html {
-  background-color: rgba(0, 0, 0, 0);
-  color: #333;
+  background-color: rgba(0, 0, 0, 0); 
+  color: black;
 }
 
 #about-section .title {
-  color: #333;
+  color: black;
 }
 
 #about-section .profession {
-  color: #555;
+  color: black;
 }
 
 #about-section .description {
-  color: #444;
+  color: black;
 }
 
 #about-section .social-links a {
-  color: #555;
+  color: black;
 }
 
 #about-section .social-links a:hover {
-  color: #4b0082;
+  color: white;
 }
 
 #about-section .social-links a:active {
-  color: #800080;
+  color: white;
 }
 
 .projects-title {
-  color: rgb(0, 0, 0);
+  color: black;
 }
 
 .project-item .project-name {
-  color: #333;
+  color: black;
 }
 
 .project-item .project-description {
-  color: #444;
+  color: black;
 }
 
 .project-item .project-links a {
-  color: #555;
+  color: black;
 }
 
 .project-item .project-links a:hover {
-  color: #4b0082;
+  color: white;
 }
 
 .project-item .project-links a:active {
-  color: #800080;
+  color: white;
 }
 
 #footer {
-  color: rgba(0, 0, 0, 0.5);
+  color: black;
 }
 
 .acrylic {
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
 }
@@ -76,10 +76,10 @@ html {
 }
 
 :root {
-  --dot1-color: #ff0000;
-  --dot2-color: #ff4000;
-  --dot3-color: #ff8000;
-  --dot4-color: #ffc000;
-  --dot5-color: #ffff00;
-  --bg-color: rgb(255, 255, 255);
+  --dot1-color: #ffffff; /* Purple */
+  --dot2-color: #ffffff; /* Indigo */
+  --dot3-color: #ffffff; /* Blue */
+  --dot4-color: #ffffff; /* Deep Sky Blue */
+  --dot5-color: #ffffff; /* Cyan */
+  --bg-color: rgb(0, 0, 0); /* Black */
 }

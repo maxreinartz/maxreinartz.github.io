@@ -1,5 +1,6 @@
 const canvas = document.getElementById("background-shader");
 const gl = canvas.getContext("webgl");
+var bgDone = false;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -161,3 +162,5 @@ function calculateRadius() {
 }
 
 calculateRadius();
+
+bgDone = true;

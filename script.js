@@ -9,7 +9,10 @@ window.onload = function () {
     const savedTheme = localStorage.getItem("selectedTheme");
     if (savedTheme) {
       themeStylesheet.href = `assets/themes/${savedTheme}.css`;
-      themeToggle.innerHTML = savedTheme === 'dark' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+      themeToggle.innerHTML =
+        savedTheme === "dark"
+          ? '<i class="fas fa-moon"></i>'
+          : '<i class="fas fa-sun"></i>';
     } else {
       themeStylesheet.href = `assets/themes/dark.css`;
       themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
@@ -23,7 +26,9 @@ window.onload = function () {
   }
 
   themeToggle.onclick = function () {
-    const currentTheme = themeStylesheet.href.includes("dark") ? "light" : "dark";
+    const currentTheme = themeStylesheet.href.includes("dark")
+      ? "light"
+      : "dark";
     changeTheme(currentTheme);
   };
 
@@ -31,6 +36,13 @@ window.onload = function () {
     const bgShaderScript = document.createElement("script");
     bgShaderScript.src = "assets/bgShader.js";
     document.body.appendChild(bgShaderScript);
+
+    var checkBgDoneInterval = setInterval(function () {
+      if (bgDone) {
+        clearInterval(checkBgDoneInterval);
+        document.getElementById("loading-screen").classList.add("hidden");
+      }
+    }, 50);
   };
 
   loadTheme();
