@@ -20,6 +20,7 @@ window.onload = function () {
   }
 
   function changeTheme(themeName) {
+    document.getElementById("loading-screen").classList.remove("hidden");
     localStorage.setItem("selectedTheme", themeName);
     themeStylesheet.href = `assets/themes/${themeName}.css`;
     location.reload();
@@ -44,6 +45,29 @@ window.onload = function () {
       }
     }, 50);
   };
+
+  ifOnSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  console.log("[DEBUG] If on Safari : " + ifOnSafari);
+
+  if (ifOnSafari) {
+    const applyTheme = (elements, darkColor, lightColor) => {
+      const savedTheme = localStorage.getItem("selectedTheme");
+      const backgroundColor = savedTheme === "dark" ? darkColor : lightColor;
+      elements.forEach((element) => {
+        element.style.background = backgroundColor;
+      });
+    };
+
+    const acrylicElements = document.querySelectorAll(".acrylic");
+    console.log("[DEBUG] Found acrylic element : " + acrylicElements.length);
+    applyTheme(acrylicElements, "rgb(0, 0, 0)", "rgb(255, 255, 255)");
+
+    const imgContainerElements = document.querySelectorAll(".img-container");
+    console.log(
+      "[DEBUG] Found img-container element : " + imgContainerElements.length
+    );
+    applyTheme(imgContainerElements, "rgb(225, 225, 225)", "rgb(60, 60, 60)");
+  }
 
   loadTheme();
 };

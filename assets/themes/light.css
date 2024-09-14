@@ -4,6 +4,10 @@ html {
   color: #333;
 }
 
+#about-section .img-container img {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
 #about-section .title {
   color: #333;
 }
