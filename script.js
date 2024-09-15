@@ -50,23 +50,21 @@ window.onload = function () {
   console.log("[DEBUG] If on Safari : " + ifOnSafari);
 
   if (ifOnSafari) {
-    const applyTheme = (elements, darkColor, lightColor) => {
-      const savedTheme = localStorage.getItem("selectedTheme");
-      const backgroundColor = savedTheme === "dark" ? darkColor : lightColor;
-      elements.forEach((element) => {
-        element.style.background = backgroundColor;
-      });
-    };
-
-    const acrylicElements = document.querySelectorAll(".acrylic");
-    console.log("[DEBUG] Found acrylic element : " + acrylicElements.length);
-    applyTheme(acrylicElements, "rgb(0, 0, 0)", "rgb(255, 255, 255)");
+    const projectItems = document.querySelectorAll("div.project-item.acrylic");
+    console.log("[DEBUG] Found project item(s) : " + projectItems.length);
+    projectItems.forEach((element) => {
+      element.style.webkitBackdropFilter = "none";
+      element.style.backdropFilter = "none";
+    });
 
     const imgContainerElements = document.querySelectorAll(".img-container");
     console.log(
       "[DEBUG] Found img-container element : " + imgContainerElements.length
     );
-    applyTheme(imgContainerElements, "rgb(225, 225, 225)", "rgb(60, 60, 60)");
+    imgContainerElements.forEach((element) => {
+      element.style.webkitBackdropFilter = "none";
+      element.style.backdropFilter = "none";
+    });
   }
 
   loadTheme();
