@@ -67,5 +67,23 @@ window.onload = function () {
     });
   }
 
+  function checkForConfetti() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("confetti")) {
+      const confettiScript = document.querySelector(
+        'script[src="/assets/clickEffect.js"]'
+      );
+      if (confettiScript) {
+        console.log("[DEBUG] Confetti script found.");
+        setTimeout(() => {
+          startConfetti();
+        }, 500);
+      } else {
+        console.warn("[DEBUG] Confetti script not found.");
+      }
+    }
+  }
+
+  checkForConfetti();
   loadTheme();
 };

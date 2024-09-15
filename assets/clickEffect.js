@@ -1,4 +1,4 @@
-var clickEffect = function (x, y, numParticles) {
+var clickEffect = function (x, y, numParticles, duration) {
   var particles = [];
 
   var colors = [
@@ -24,8 +24,13 @@ var clickEffect = function (x, y, numParticles) {
       rotationSpeed: Math.random() * 10 - 5,
       opacity: 1,
       gravity: 0.05,
+      duration: duration || 1,
+      startTime: Date.now(),
     };
     particles.push(particle);
+
+    // Debugging: Print initial properties
+    console.log(`[DEBUG] Initial particle properties: ${JSON.stringify(particle)}`);
   }
 
   return particles;
@@ -48,8 +53,8 @@ document.addEventListener("mousemove", function (e) {
   }
 });
 
-function createParticles(e, numParticles) {
-  var particles = clickEffect(e.clientX + window.scrollX, e.clientY + window.scrollY, numParticles);
+function createParticles(e, numParticles, duration) {
+  var particles = clickEffect(e.clientX + window.scrollX, e.clientY + window.scrollY, numParticles, duration);
   particles.forEach(function (particle) {
     var div = document.createElement("div");
     div.style.position = "absolute";
@@ -62,23 +67,55 @@ function createParticles(e, numParticles) {
     div.style.transform = `rotate(${particle.rotation}deg)`;
     div.style.pointerEvents = "none";
     document.body.appendChild(div);
-
-    var interval = setInterval(function () {
-      particle.x += particle.speed.x;
-      particle.y += particle.speed.y;
-      particle.speed.y += particle.gravity;
-      particle.rotation += particle.rotationSpeed;
-      particle.opacity -= 0.02;
-
-      div.style.left = particle.x + "px";
-      div.style.top = particle.y + "px";
-      div.style.opacity = particle.opacity;
-      div.style.transform = `rotate(${particle.rotation}deg)`;
-
-      if (particle.opacity <= 0) {
-        clearInterval(interval);
-        div.remove();
-      }
-    }, 16);
+    particle.div = div;
+    activeParticles.push(particle);
   });
 }
+
+function animateParticles() {
+  var currentTime = Date.now();
+  var deltaTime = currentTime - lastTime;
+  lastTime = currentTime;
+
+  activeParticles.forEach(function (particle) {
+    var elapsedTime = currentTime - particle.startTime;
+
+    if (elapsedTime < particle.duration * 1000) {
+      particle.x += particle.speed.x * (deltaTime / 16);
+      particle.y += particle.speed.y * (deltaTime / 16);
+      particle.speed.y += particle.gravity * (deltaTime / 16);
+      particle.rotation += particle.rotationSpeed * (deltaTime / 16);
+      particle.opacity -= (1 / (particle.duration * 1000)) * deltaTime;
+
+      particle.div.style.left = particle.x + "px";
+      particle.div.style.top = particle.y + "px";
+      particle.div.style.opacity = particle.opacity;
+      particle.div.style.transform = `rotate(${particle.rotation}deg)`;
+    } else {
+      particle.div.remove();
+      activeParticles = activeParticles.filter(p => p !== particle);
+    }
+  });
+
+  requestAnimationFrame(animateParticles);
+}
+
+var activeParticles = [];
+var lastTime = Date.now();
+requestAnimationFrame(animateParticles);
+
+function startConfetti() {
+  console.log("[DEBUG] Starting confetti.");
+  var confettiInterval = setInterval(function () {
+    createParticles(
+      {
+        clientX: Math.random() * window.innerWidth,
+        clientY: Math.random() * window.innerHeight,
+      },
+      2,
+      3
+    );
+  }, 250);
+}
+
+window.startConfetti = startConfetti;
