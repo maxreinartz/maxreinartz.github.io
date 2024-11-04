@@ -6,6 +6,10 @@ html {
   scrollbar-color: #555555 #999999;
 }
 
+#arrow {
+  fill: black;
+}
+
 #about-section .img-container img {
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
@@ -70,6 +74,10 @@ html {
 #loading-screen.hidden .loading-text {
   opacity: 0;
   visibility: hidden;
+}
+
+#to-top{
+  color: black;
 }
 
 body::-webkit-scrollbar {

@@ -43,6 +43,28 @@ html {
   justify-content: center;
 }
 
+#arrow {
+  position: absolute;
+  bottom: 5vh;
+  left: 48.75%;
+  width: clamp(1.5rem, 2.5vw, 3rem);
+  height: clamp(1.5rem, 2.5vw, 3rem);
+  cursor: pointer;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
 #about-section {
   display: flex;
   flex-direction: column;
@@ -198,6 +220,18 @@ html {
   position: fixed;
   bottom: 10px;
   left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+#to-top {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
