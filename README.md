@@ -1,4 +1,4 @@
-# Creeper76.github.io
+# maxreinartz.github.io
 
 This is my website and you can check it out at [maxreinartz.me](http://maxreinartz.me)!
 
