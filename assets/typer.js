@@ -1,9 +1,9 @@
 /*
-  Creeper76's Software License
+  Max Reinartz's Software License
   
-  Copyright (c) 2024 Creeper76
+  Copyright (c) 2025 Max Reinartz
 
-  This software is licensed under the terms of Creeper76's Software License.
+  This software is licensed under the terms of Max Reinartz's Software License.
   See the LICENSE file for more details.
 
   This software is provided "as is", without warranty of any kind, express or implied.
