@@ -1,0 +1,167 @@
+/* Colors */
+
+:root {
+    --bg-color: #0f0f0f;
+    --text-color: #ddd;
+    --link-color: rgb(0, 156, 177);
+    --link-hover-color: rgb(0, 197, 223);
+    --text-shadow-color: #444;
+    --selection-color: rgb(213, 175, 235);
+}
+
+html {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: monospace, monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    animation: fade_in 750ms;
+    margin: 0;
+    padding: 15px 15px 30px 15px;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: initial;
+}
+
+h1 {
+    font-size: 64px;
+    padding: 0;
+    margin: 25px 0 0 0;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+h3 {
+    font-size: 32px;
+    margin: 15px 0 5px 0;
+}
+
+h4,h5 {
+    font-size: 16px;
+}
+
+ul {
+    padding-left: 25px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul > li {
+    list-style-type: square;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+::selection {
+	background-color: var(--selection-color);
+	color: #000;
+	text-shadow: none;
+}
+
+#content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header {
+    clear: both;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header-left {
+    float:left;
+    text-align:center;
+}
+
+#header-left > img {
+    width: 180px;
+    text-align: center;
+    border-radius: 7px;
+}
+
+#header-right {
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.menuitem {
+    position: relative;
+    display: inline;
+    text-shadow: 4px 4px var(--text-shadow-color);
+    margin: 0 16px 0 16px;
+    text-align: center;
+}
+
+.menuitem:hover {
+    text-shadow: 2px 2px var(--text-shadow-color);
+    top: 2px;
+    left: 2px;
+}
+
+.minami-image-text {
+    display: inline-block;
+    background-image: url('/assets/img/Minami.png');
+    background-size: 200% auto;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* Screen Sizes */
+
+@media (min-width: 769px) {
+	#content, #header {
+		width: 769px;
+		max-width: 768px;
+	}
+}
+
+@media (max-width: 768px) {
+    #header-left {
+        float: none;
+        margin: 0;
+        padding: 0;
+    }
+    #header-right, #header-right > ul {
+        float: none;
+        margin: 20px 0;
+        padding: 0;
+    }
+    .menuitem {
+        margin: 0 4px 0 4px;
+        padding: 0;
+    }
+    #content {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Animations */
+
+@keyframes fade_in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

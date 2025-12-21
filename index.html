@@ -1,242 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
-    <title>Hi! I'm Max</title>
-    <meta
-      name="description"
-      content="Hi! I'm Max, a developer specializing in C."
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <head>
-      <link rel="icon" href="/assets/img/icon.png" type="image/png" />
-    </head>
-  </head>
-  <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-      <div class="loading-text">Loading...</div>
+<head>
+
+    <title>Max's Website</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Max's Website" />
+    <meta property="og:description" content="Max's personal website with lots of anime and cats." />
+    <meta property="og:url" content="https://maxreinartz.dev/" />
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="assets/img/PFP_SMALL.png" />
+
+</head>
+
+<!-- 
+    Heavily inspired by domi's webpage:
+    https://sdomi.pl/
+-->
+
+<body>
+<div id="header">
+    <div id="header-left">
+        <img src="assets/img/PFP_SMALL.png" alt="Koito Yuu" title="Yuu">
     </div>
-    <!-- Background Shader -->
-    <canvas id="background-shader"></canvas>
-    <!--- Content -->
-    <div id="content-wrapper">
-      <!-- Typing text -->
-      <div id="hello">
-        <div
-          class="typer-text"
-          data-text='["Hi, I&apos;m Max!", "I enjoy coding in C and Java."]'
-        ></div>
-      </div>
-      <!-- Arrow -->
-      <a href="#about-section">
-        <svg
-          id="arrow"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="1.399 5.908 17.2 9.201"
-        >
-          <path
-            d="M17.418 6.109a.697.697 0 0 1 .979 0 .68.68 0 0 1 0 .969l-7.908 7.83a.697.697 0 0 1-.979 0l-7.908-7.83a.68.68 0 0 1 0-.969.697.697 0 0 1 .979 0L10 13.25l7.418-7.141z"
-          />
-        </svg>
-      </a>
-      <!-- About Section -->
-      <div id="about-section" class="acrylic">
-        <div class="img-container acrylic">
-          <img src="/assets/img/profile.jpg" alt="Profile Image" />
-        </div>
-        <div class="title">Max Reinartz</div>
-        <div class="profession">Software Developer</div>
-        <div class="description">
-          Hi! I'm Max, a developer specializing in C and Java. I enjoy creating
-          random projects and learning new things!
-        </div>
-        <div class="social-links">
-          <!-- Github -->
-          <a href="https://github.com/maxreinartz" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <!-- Discord -->
-          <a
-            href="https://discord.com/users/777694273319469057"
-            target="_blank"
-          >
-            <i class="fab fa-discord"></i>
-          </a>
-          <!-- Email -->
-          <a href="mailto:contact@maxreinartz.dev">
-            <i class="fas fa-envelope"></i>
-          </a>
-        </div>
-        <!-- BLANK
-          <div id="projects">
-          <div class="project-item">
-            <div class="project-image" style="background-image: url('URL TO IMAGE');"></div>
-            <div class="project-name">
-              <a href="LINK TO GITHUB">PROJECT NAME</a>
-            </div>
-            <div class="project-description">
-              PROJECT DESCRIPTION
-            </div>
-            <div class="project-links">
-              <a href="preview-link">Preview</a>
-              <a href="other-link">Other Link</a>
-            </div>
-          </div>
-        -->
-        <div id="projects">
-          <div class="projects-title">Projects</div>
-          <div class="project-item acrylic">
-            <div class="project-name">
-              <a
-                href="https://github.com/maxreinartz/maxreinartz.github.io"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Portfolio
-              </a>
-            </div>
-            <div class="project-description">
-              The current website you are on! It's a simple portfolio website to
-              showcase my projects and skills. It's also a great way to learn
-              more about me!
-            </div>
-            <div class="project-links">
-              <a
-                href="https://maxreinartz.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Website</a
-              >
-            </div>
-          </div>
-
-          <div class="project-item acrylic">
-            <div class="project-name">
-              <a
-                href="https://github.com/maxreinartz/CherryBlossoms"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Cherry Blossoms</a
-              >
-            </div>
-            <div class="project-description">
-              A simple desktop application which has falling cherry blossoms!
-              The user may also interact with them in many different ways,
-              whether it's pushing them away from the cursor, making their own,
-              or even making images out of them! Check out the Github for all
-              the features!
-            </div>
-          </div>
-
-          <div class="project-item acrylic">
-            <div class="project-name">
-              <a
-                href="https://github.com/maxreinartz/MSFTWallpaperDownloader"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Microsoft Wallpaper Downloader</a
-              >
-            </div>
-            <div class="project-description">
-              A simple Python script that downloads the latest Microsoft
-              wallpapers from the Microsoft Wallpaperhub profile. It's a great
-              way to get all the wallpapers without having to download them
-              manually!
-            </div>
-          </div>
-
-          <div class="project-item acrylic">
-            <div class="project-name">
-              <a
-                href="https://github.com/maxreinartz/PWAATDocs"
-                target="_blank"
-                rel="noopener noreferrer"
-                >PWAAT Documentation</a
-              >
-            </div>
-            <div class="project-description">
-              An unofficial documentation for the PWAAT (Phoenix Wright: Ace
-              Attorney Trilogy) game code. If you every need to know how the
-              game works, this is the place to go!
-              <br /><br />
-              *Note: This project is still in development and may not be
-              complete.
-            </div>
-            <div class="project-links">
-              <a
-                href="http://pwaatdocs.maxreinartz.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Website</a
-              >
-            </div>
-          </div>
-
-          <div class="project-item acrylic">
-            <div class="project-name">
-              <a
-                href="https://github.com/maxreinartz/BugCheckWeb"
-                target="_blank"
-                rel="noopener noreferrer"
-                >BugCheckWeb</a
-              >
-            </div>
-            <div class="project-description">
-              A simple website that simulates a bug check, which is also known
-              as a Blue Screen of Death (BSOD). It's a fun way to see what a bug
-              check looks like without having to crash your computer!
-            </div>
-            <div class="project-links">
-              <a
-                href="https://bugcheck.maxreinartz.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Website</a
-              >
-            </div>
-          </div>
-
-          <div class="project-item acrylic">
-            <div class="project-name">
-              <a
-                href="https://github.com/maxreinartz/BouncyError"
-                target="_blank"
-                rel="noopener noreferrer"
-                >BouncyError</a
-              >
-            </div>
-            <div class="project-description">
-              Error: Task failed successfully.
-            </div>
-          </div>
-          <!-- More will be added -->
-        </div>
-      </div>
+    <div id="header-right">
+        <h1>Max's Website</h1>
+        <ul>
+            <li class="menuitem"><a href="https://github.com/maxreinartz" target="_blank">GitHub</a></li>
+            <li class="menuitem"><a href="https://bsky.app/profile/maxreinartz.dev" target="_blank">Bluesky</a></li>
+            <li class="menuitem"><a href="https://anilist.co/user/Max7689/" target="_blank">Anilist</a></li>
+            <li class="menuitem"><a href="mailto:contact@maxreinartz.dev">Email</a></li>
+        </ul>
     </div>
-    <!-- Theme Toggle -->
-    <div id="theme-toggle" class="acrylic"></div>
-    <!-- Back to Top Button -->
-    <a href="#hello">
-      <div id="to-top" class="acrylic">
-        <i class="fas fa-chevron-up"></i>
-      </div>
-    </a>
-    <!-- Footer -->
-    <div id="footer">
-      <p>Copyright (c) 2025 Max Reinartz</p>
-    </div>
-    <!-- Scripts -->
-    <script src="/assets/typer.js"></script>
-    <script src="/assets/clickEffect.js"></script>
-    <script src="/script.js"></script>
-  </body>
+</div>
+<div id="content">
+    <h3>About Me</h3>
+    <ul>
+        <li>I like anime, cats, coding, and listening to music</li>
+        <li>My favorite artist is <a href="https://www.373official.com/" target="_blank">美波 (Minami)</a></li>
+        <li>My favorite songs by 美波 are「<a href="https://squigly.link/kYwxH5" target="_blank">ホロネス</a>」and「<a href="https://squigly.link/ySkDex" target="_blank">グッドラッカー</a>」</li>
+    </ul>
+
+    <p>
+        I'm interested in web development and programming in general. I love creating random projects when ever I have an idea come to mind. Feel free to check them out below!
+    </p>
+
+    <p>
+        For non-computer related stuff, I enjoy watching anime (check out my <a href="https://anilist.co/user/Max7689/" target="_blank">Anilist</a>!) and I love travelling around the world. So far I've been to Germany, Austria, Italy, Switzerland, France, and Japan.
+    </p>
+
+    <p>
+        Some of my favorite anime are <em>Frieren: Beyond Journey's End</em>, <em>Fullmetal Alchemist: Brotherhood</em>, and <em>Steins;Gate</em>. My favorite characters are Frieren from <em>Frieren: Beyond Journey's End</em>, Koito Yuu from <em>Bloom Into You</em>, Saotome Ranma from <em>Ranma 1/2</em>, and Shampoo from <em>Ranma 1/2</em>.
+    </p>
+
+    <h3>Projects</h3>
+    <ul>
+        <li>Bluesky Downloader
+        <ul>
+            <li>Download images and videos from Bluesky posts</li>
+            <li><a href="https://github.com/maxreinartz/Bluesky-Media-Downloader" target="_blank">GitHub</a></li>
+        </ul>
+        </li>
+        <li>Microsoft Wallpaper Downloader
+        <ul>
+            <li>Download wallpapers from Microsoft's Wallpaperhub page</li>
+            <li><a href="https://github.com/maxreinartz/MSFTWallpaperDownloader" target="_blank">GitHub</a></li>
+        </ul>
+        </li>
+        <li>OtotoyCLI
+        <ul>
+            <li>A CLI tool for interacting with the Ototoy.jp API</li>
+            <li><a href="https://github.com/maxreinartz/OtotoyCLI" target="_blank">GitHub</a></li>
+        </ul>
+        </li>
+        <li><a href="https://frieren.pics" target="_blank">Frieren.pics</a>
+            <ul>
+                <li>Get random Frieren pictures from the r/Frieren subreddit</li>
+                <li><a href="https://github.com/maxreinartz/Frieren-Art" target="_blank">GitHub</a></li>
+            </ul>
+        </li>
+        <li><a href="https://catboys.pics" target="_blank">Catboys.pics</a>
+            <ul>
+                <li>Get random catboy pictures from various artists on Pixiv</li>
+                <li><a href="https://github.com/maxreinartz/catboys.pics" target="_blank">GitHub</a></li>
+            </ul>
+        </li>
+        <li><a href="https://bugcheck.maxreinartz.dev" target="_blank">BugCheckWeb</a>
+            <ul>
+                <li>Create a fake Blue Screen of Death (BSOD) in your browser</li>
+                <li><a href="https://github.com/maxreinartz/BugCheckWeb" target="_blank">GitHub</a></li>
+            </ul>
+        </li>
+    </ul>
+    
+    <p>Copyright (c) 2025 Max Reinartz, licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA</a></p>
+</div>
+</body>
 </html>
