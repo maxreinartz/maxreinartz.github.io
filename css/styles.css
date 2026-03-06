@@ -39,7 +39,7 @@ h2 {
 
 h3 {
     font-size: 32px;
-    margin: 15px 0 5px 0;
+    margin: 15px 0 10px 0;
 }
 
 h4,h5 {
@@ -81,6 +81,7 @@ a:hover {
     display: table;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 20px;
 }
 
 #header-left {
@@ -95,6 +96,7 @@ a:hover {
 }
 
 #header-right {
+    position: relative;
     align-items: center;
     padding: 20px;
     text-align: center;
@@ -104,6 +106,17 @@ a:hover {
     font-size: 14px;
     margin-top: 20px;
     text-align: center;
+    border-left: 3px solid var(--link-color);
+    padding-left: 15px;
+    padding: 15px 15px 15px 15px;
+    margin-left: 0;
+    margin-right: 0;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+
+#quote > em {
+    color: var(--link-color);
 }
 
 .menuitem {
@@ -120,15 +133,8 @@ a:hover {
     left: 2px;
 }
 
-.minami-image-text {
-    display: inline-block;
-    background-image: url('/assets/img/Minami.png');
-    background-size: 200% auto;
-    background-position: center;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+.accent {
+    color: var(--link-hover-color);
 }
 
 /* Screen Sizes */
@@ -140,14 +146,20 @@ a:hover {
 	}
 }
 
+/* Ignore the terrible code you see below */
+
 @media (max-width: 768px) {
-    #header-left {
-        float: none;
-        margin: 0;
-        padding: 0;
+    h1 {
+        font-size: 48px;
+    }
+    #header {
+        padding-top: 0;
+    }
+    #header-left > img {
+        margin-top: 20px;
+        width: 120px;
     }
     #header-right, #header-right > ul {
-        float: none;
         margin: 20px 0;
         padding: 0;
     }
@@ -158,6 +170,12 @@ a:hover {
     #content {
         margin: 0;
         padding: 0;
+    }
+    #quote {
+        margin-top: 0;
+        padding: 10px 10px 10px 10px;
+        letter-spacing: normal;
+        line-height: normal;
     }
 }
 
