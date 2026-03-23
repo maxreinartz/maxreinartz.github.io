@@ -1,5 +1,12 @@
 /* Colors */
 
+@font-face {
+    font-family: 'Main';
+    src: url('../assets/fonts/IBMPlexSans-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --bg-color: #0f0f0f;
     --text-color: #ddd;
@@ -15,7 +22,7 @@ html {
 }
 
 body {
-    font-family: monospace, monospace;
+    font-family: 'Main', monospace;
     background-color: var(--bg-color);
     color: var(--text-color);
     animation: fade_in 750ms;
@@ -109,7 +116,7 @@ a:hover {
     padding: 10px 15px 10px 15px;
     margin-left: 0;
     margin-right: 0;
-    letter-spacing: 0.5px;
+    letter-spacing: 2px;
     line-height: 1.6;
 }
 
@@ -150,7 +157,7 @@ a:hover {
     }
     #header-left > img {
         margin-top: 20px;
-        width: 120px;
+        width: 140px;
     }
     #header-right, #header-right > ul {
         margin: 20px 0;
