@@ -1,11 +1,4 @@
-/* Colors */
-
-@font-face {
-    font-family: 'Main';
-    src: url('../assets/fonts/IBMPlexSans-VariableFont_wdth\,wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+/* Root Variables */
 
 :root {
     --bg-color: #0f0f0f;
@@ -14,11 +7,33 @@
     --link-hover-color: rgb(0, 197, 223);
     --text-shadow-color: #444;
     --selection-color: rgb(213, 175, 235);
+    --font-content: 16px;
+    --font-small: 32px;
+    --font-medium: 48px;
+    --font-large: 64px;
+}
+
+/* Fonts */
+
+@font-face {
+    font-family: 'Main';
+    src: url('../assets/fonts/BIZUDPGothic-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Main';
+    src: url('../assets/fonts/BIZUDPGothic-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
 
 html {
     box-sizing: border-box;
     overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -35,22 +50,30 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-    font-size: 64px;
+    font-size: var(--font-large);
     padding: 0;
     margin: 25px 0 0 0;
+    font-weight: bold;
 }
 
 h2 {
-    font-size: 48px;
+    font-size: var(--font-medium);
+    font-weight: bold;
 }
 
 h3 {
-    font-size: 32px;
+    font-size: var(--font-small);
     margin: 15px 0 10px 0;
+    font-weight: bold;
 }
 
 h4,h5 {
-    font-size: 16px;
+    font-size: var(--font-content);
+}
+
+p {
+    font-size: var(--font-content);
+    line-height: 1.2;
 }
 
 ul {
@@ -60,7 +83,9 @@ ul {
 }
 
 ul > li {
+    font-size: var(--font-content);
     list-style-type: square;
+    line-height: 1.2;
 }
 
 a {
@@ -109,15 +134,14 @@ a:hover {
 }
 
 #quote {
-    font-size: 14px;
+    font-size: var(--font-content);
     margin-top: 20px;
     text-align: center;
     border-left: 3px solid var(--link-color);
     padding: 10px 15px 10px 15px;
     margin-left: 0;
     margin-right: 0;
-    letter-spacing: 2px;
-    line-height: 1.6;
+    line-height: 1.4;
 }
 
 .menuitem {
@@ -154,6 +178,16 @@ a:hover {
     }
     h1 {
         font-size: 48px;
+        padding-top: 20px;
+        padding-bottom: 16px;
+        line-height: 1;
+    }
+    #socials {
+        display: block;
+    }
+    #quote {
+        margin-top: 0;
+        padding: 10px 10px 10px 10px;
     }
     #header-left > img {
         margin-top: 20px;
@@ -162,12 +196,6 @@ a:hover {
     #header-right, #header-right > ul {
         margin: 20px 0;
         padding: 0;
-    }
-    #quote {
-        margin-top: 0;
-        padding: 10px 10px 10px 10px;
-        letter-spacing: normal;
-        line-height: normal;
     }
 }
 
