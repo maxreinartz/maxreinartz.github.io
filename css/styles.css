@@ -3,10 +3,9 @@
 :root {
     --bg-color: #0f0f0f;
     --text-color: #ddd;
-    --link-color: rgb(0, 156, 177);
-    --link-hover-color: rgb(0, 197, 223);
+    --link-color: #F5AE95;
+    --link-hover-color: #fd8e66;
     --text-shadow-color: #444;
-    --selection-color: rgb(213, 175, 235);
     --font-content: 16px;
     --font-small: 32px;
     --font-medium: 48px;
@@ -98,8 +97,8 @@ a:hover {
 }
 
 ::selection {
-	background-color: var(--selection-color);
-	color: #000;
+	background-color: var(--link-color);
+	color: var(--bg-color);
 	text-shadow: none;
 }
 
